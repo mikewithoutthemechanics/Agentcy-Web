@@ -1,58 +1,57 @@
 import { motion } from 'motion/react';
 
-const scheduleData = [
+const phases = [
   {
     phase: "Phase 1",
-    sessions: [
+    label: "Discovery",
+    steps: [
       {
-        time: "Morning",
-        events: [
-          "Enhanced Business Audit",
-          "We firebomb your business to understand exactly where to apply our agents",
-          "Panel: Tech for Good: Building with Purpose"
-        ]
+        title: "Enhanced Business Audit",
+        desc: "We firebomb your business to understand exactly where to apply our agents — mapping every workflow, bottleneck, and opportunity for automation."
       },
       {
-        time: "Afternoon",
-        events: [
-          "Workshop: Vision Mapping for Sustainable Businesses",
-          "Talk: The New Metrics of Success: Impact Over Scale",
-          "Panel: From Solo Founder to Collaborative Ecosystem"
-        ]
+        title: "Opportunity Mapping",
+        desc: "A deep-dive analysis to surface every area where AI can drive measurable ROI, efficiency gains, or competitive advantage."
       },
       {
-        time: "Evening",
-        events: [
-          "Welcome Mixer: Meet the Makers"
-        ]
+        title: "Strategy Session",
+        desc: "We present our findings and align on a prioritised roadmap tailored to your goals, team, and timeline."
       }
     ]
   },
   {
-    phase: "Day 2",
-    sessions: [
+    phase: "Phase 2",
+    label: "Build",
+    steps: [
       {
-        time: "Morning",
-        events: [
-          "Talk: Designing for Regeneration, Not Just Efficiency",
-          "Workshop: Build a Climate-Conscious Business Model",
-          "Case Study: Scaling with Partners, Not Just Capital"
-        ]
+        title: "Agent Design & Architecture",
+        desc: "Our engineers design custom AI agents built specifically for your business processes — not off-the-shelf templates."
       },
       {
-        time: "Afternoon",
-        events: [
-          "Roundtable: Shared Infrastructure for Small Businesses",
-          "Workshop: Co-Creation Tools for Distributed Teams",
-          "Talk: The Role of AI in Sustainable Innovation"
-        ]
+        title: "Integration & Deployment",
+        desc: "We connect your agents to existing tools, databases, and workflows with zero disruption to your day-to-day operations."
       },
       {
-        time: "Evening",
-        events: [
-          "Community Dinners: Neighborhood Table Sessions",
-          "Fireside Chat: What the Next Generation Expects from Us"
-        ]
+        title: "Testing & Optimisation",
+        desc: "Rigorous QA cycles ensure your agents perform reliably at scale before going live in your business."
+      }
+    ]
+  },
+  {
+    phase: "Phase 3",
+    label: "Scale",
+    steps: [
+      {
+        title: "Launch & Handover",
+        desc: "A smooth go-live with full team training so your people can work alongside AI confidently from day one."
+      },
+      {
+        title: "Ongoing Support",
+        desc: "We stay close after launch — monitoring performance, refining agents, and expanding their capabilities as your business grows."
+      },
+      {
+        title: "Continuous Innovation",
+        desc: "As AI evolves, so do your agents. We proactively introduce new capabilities to keep you ahead of the curve."
       }
     ]
   }
@@ -60,42 +59,50 @@ const scheduleData = [
 
 export default function Schedule() {
   return (
-    <section className="bg-black text-white py-32 px-6 relative z-30">
+    <section id="process" className="bg-black text-white py-32 px-6 relative z-30">
       <div className="max-w-7xl mx-auto">
-        <motion.h2 
+        <motion.h2
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-6xl md:text-8xl font-bold tracking-tighter mb-24 text-center md:text-left"
+          className="text-6xl md:text-8xl font-bold tracking-tighter mb-24"
         >
           How we do it
         </motion.h2>
 
         <div className="space-y-32">
-          {scheduleData.map((day, i) => (
-            <div key={i} className="flex flex-col md:flex-row gap-12 md:gap-24">
+          {phases.map((phase, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="flex flex-col md:flex-row gap-12 md:gap-24"
+            >
               <div className="md:w-1/3">
-                <h3 className="text-5xl md:text-6xl font-bold tracking-tight sticky top-32">{day.phase}</h3>
+                <div className="sticky top-32">
+                  <p className="text-gray-500 text-sm font-semibold uppercase tracking-widest mb-2">{phase.phase}</p>
+                  <h3 className="text-5xl md:text-6xl font-bold tracking-tight">{phase.label}</h3>
+                </div>
               </div>
-              <div className="md:w-2/3 space-y-16">
-                {day.sessions.map((session, j) => (
-                  <div key={j} className="flex flex-col md:flex-row gap-8 md:gap-16 border-t border-white/10 pt-8">
+              <div className="md:w-2/3 space-y-0">
+                {phase.steps.map((step, j) => (
+                  <div key={j} className="flex flex-col md:flex-row gap-8 md:gap-16 border-t border-white/10 py-10">
                     <div className="md:w-1/4">
-                      <h4 className="text-2xl font-medium text-gray-400">{session.time}</h4>
+                      <span className="text-gray-500 text-4xl font-bold tabular-nums">
+                        {String(j + 1).padStart(2, '0')}
+                      </span>
                     </div>
-                    <div className="md:w-3/4 space-y-6">
-                      {session.events.map((event, k) => (
-                        <div key={k} className="flex items-start gap-4">
-                          <span className="text-gray-500 mt-1">~</span>
-                          <p className="text-xl md:text-2xl font-medium leading-snug">{event}</p>
-                        </div>
-                      ))}
+                    <div className="md:w-3/4">
+                      <h4 className="text-2xl md:text-3xl font-bold mb-3">{step.title}</h4>
+                      <p className="text-gray-400 text-lg leading-relaxed">{step.desc}</p>
                     </div>
                   </div>
                 ))}
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>
