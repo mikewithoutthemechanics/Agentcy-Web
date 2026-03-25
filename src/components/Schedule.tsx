@@ -1,5 +1,7 @@
 import { motion } from 'motion/react';
 
+const ease = [0.16, 1, 0.3, 1] as const;
+
 const phases = [
   {
     phase: "Phase 1",
@@ -59,47 +61,55 @@ const phases = [
 
 export default function Schedule() {
   return (
-    <section id="process" className="bg-black text-white py-32 px-6 relative z-30">
+    <section id="process" className="bg-black text-white py-32 px-6 md:px-10 relative z-30">
       <div className="max-w-7xl mx-auto">
         <motion.h2
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-6xl md:text-8xl font-bold tracking-tighter mb-24"
+          transition={{ duration: 0.75, ease }}
+          className="text-[clamp(3rem,8vw,6rem)] font-bold tracking-tighter mb-24 leading-[0.9]"
         >
           How we do it
         </motion.h2>
 
-        <div className="space-y-32">
+        <div className="space-y-28">
           {phases.map((phase, i) => (
             <motion.div
               key={i}
-              initial={{ opacity: 0, y: 40 }}
+              initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-80px" }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="flex flex-col md:flex-row gap-12 md:gap-24"
+              viewport={{ once: true, margin: '-60px' }}
+              transition={{ duration: 0.7, delay: 0.05, ease }}
+              className="flex flex-col md:flex-row gap-10 md:gap-20"
             >
-              <div className="md:w-1/3">
-                <div className="sticky top-32">
-                  <p className="text-gray-500 text-sm font-semibold uppercase tracking-widest mb-2">{phase.phase}</p>
-                  <h3 className="text-5xl md:text-6xl font-bold tracking-tight">{phase.label}</h3>
+              <div className="md:w-[30%]">
+                <div className="md:sticky top-32">
+                  <p className="text-white/30 text-xs font-semibold uppercase tracking-[0.2em] mb-3">{phase.phase}</p>
+                  <h3 className="text-[clamp(2.5rem,5vw,4rem)] font-bold tracking-tight leading-none">{phase.label}</h3>
                 </div>
               </div>
-              <div className="md:w-2/3 space-y-0">
+
+              <div className="md:w-[70%]">
                 {phase.steps.map((step, j) => (
-                  <div key={j} className="flex flex-col md:flex-row gap-8 md:gap-16 border-t border-white/10 py-10">
-                    <div className="md:w-1/4">
-                      <span className="text-gray-500 text-4xl font-bold tabular-nums">
+                  <motion.div
+                    key={j}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: '-40px' }}
+                    transition={{ duration: 0.55, delay: j * 0.08, ease }}
+                    className="flex flex-col sm:flex-row gap-6 sm:gap-12 border-t border-white/[0.08] py-10 group"
+                  >
+                    <div className="sm:w-[18%]">
+                      <span className="text-[clamp(2rem,3.5vw,2.75rem)] font-bold tabular-nums text-white/20 group-hover:text-white/40 transition-colors duration-300">
                         {String(j + 1).padStart(2, '0')}
                       </span>
                     </div>
-                    <div className="md:w-3/4">
-                      <h4 className="text-2xl md:text-3xl font-bold mb-3">{step.title}</h4>
-                      <p className="text-gray-400 text-lg leading-relaxed">{step.desc}</p>
+                    <div className="sm:w-[82%]">
+                      <h4 className="text-xl md:text-2xl font-bold mb-3 tracking-tight">{step.title}</h4>
+                      <p className="text-white/50 text-base leading-relaxed">{step.desc}</p>
                     </div>
-                  </div>
+                  </motion.div>
                 ))}
               </div>
             </motion.div>

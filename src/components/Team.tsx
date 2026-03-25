@@ -1,6 +1,8 @@
 import { motion } from 'motion/react';
 import { ArrowRight } from 'lucide-react';
 
+const ease = [0.16, 1, 0.3, 1] as const;
+
 const team = [
   {
     name: "Marcus Reid",
@@ -26,7 +28,7 @@ const team = [
 
 export default function Team() {
   return (
-    <section id="team" className="bg-white text-black py-24 px-6">
+    <section id="team" className="bg-white text-black py-28 px-6 md:px-10">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-20">
@@ -34,8 +36,8 @@ export default function Team() {
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-6xl md:text-8xl font-bold tracking-tighter leading-none"
+            transition={{ duration: 0.75, ease }}
+            className="text-[clamp(3rem,8vw,6rem)] font-bold tracking-tighter leading-[0.9]"
           >
             Agentcy's<br />Team
           </motion.h2>
@@ -43,36 +45,39 @@ export default function Team() {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="flex flex-col items-start md:items-end gap-4 mt-6 md:mt-0"
+            transition={{ duration: 0.5, delay: 0.25 }}
+            className="flex flex-col items-start md:items-end gap-3 mt-6 md:mt-0"
           >
-            <p className="text-xl text-gray-500">Meet Our Agents</p>
-            <button className="flex items-center gap-2 font-medium text-sm hover:text-gray-500 transition-colors">
-              <ArrowRight className="w-4 h-4" /> All agents
-            </button>
+            <p className="text-base text-gray-400 font-medium">Meet Our Agents</p>
+            <motion.button
+              whileHover={{ x: 4 }}
+              className="flex items-center gap-2 font-semibold text-sm uppercase tracking-widest hover:text-gray-400 transition-colors"
+            >
+              <ArrowRight className="w-3.5 h-3.5" /> All agents
+            </motion.button>
           </motion.div>
         </div>
 
         {/* Team Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-5 md:gap-6">
           {team.map((member, i) => (
             <motion.div
               key={i}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="flex flex-col"
+              transition={{ duration: 0.6, delay: i * 0.08, ease }}
+              className="flex flex-col group cursor-pointer"
             >
-              <div className="aspect-[3/4] rounded-2xl overflow-hidden bg-gray-100 mb-4">
+              <div className="aspect-[3/4] rounded-3xl overflow-hidden bg-gray-100 mb-4">
                 <img
                   src={member.img}
                   alt={member.name}
-                  className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500"
+                  className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700 ease-out"
                 />
               </div>
-              <h3 className="text-xl font-bold tracking-tight">{member.name}</h3>
-              <p className="text-gray-500 text-sm mt-1">{member.role}</p>
+              <h3 className="text-lg font-bold tracking-tight">{member.name}</h3>
+              <p className="text-gray-400 text-sm mt-0.5">{member.role}</p>
             </motion.div>
           ))}
         </div>

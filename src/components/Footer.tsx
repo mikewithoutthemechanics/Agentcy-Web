@@ -9,7 +9,7 @@ export default function Footer() {
         <motion.img
           src="https://framerusercontent.com/images/ZuUdmoRyw0AHCWs9QD3PT9m3liQ.png"
           alt=""
-          className="absolute inset-0 w-full h-full object-cover opacity-80"
+          className="absolute inset-0 w-full h-full object-cover opacity-40"
           animate={{
             scale: [1.05, 1.15, 1.05],
             x: ['2%', '-2%', '2%'],
