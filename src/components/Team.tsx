@@ -12,7 +12,7 @@ const team = [
   {
     name: "Ryan Paul",
     role: "Technical Director",
-    img: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=987&auto=format&fit=crop"
+    img: "/ryan-paul.jpg"
   },
   {
     name: "Marvin Saunders",
