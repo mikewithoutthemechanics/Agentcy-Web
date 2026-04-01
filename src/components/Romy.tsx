@@ -1,6 +1,8 @@
 import { motion } from 'motion/react';
 import { ArrowRight, Bot, Zap, Brain, Layers, MessageSquare, Workflow, ChevronRight } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
+import ImageMaskText from './ImageMaskText';
+import ImageWheel from './ImageWheel';
 
 const ease = [0.16, 1, 0.3, 1] as const;
 
@@ -182,22 +184,23 @@ export default function Romy() {
             </span>
           </motion.div>
 
-          {/* Name */}
-          <motion.h1
+          {/* Name — image masked */}
+          <motion.div
             initial={{ opacity: 0, y: 60, filter: 'blur(12px)' }}
             animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
             transition={{ delay: 0.3, duration: 1.2, ease }}
-            style={{
-              fontSize: 'clamp(72px, 15vw, 160px)',
-              lineHeight: 0.85, letterSpacing: '-0.05em',
-              fontFamily: "'Space Grotesk', 'Inter', sans-serif",
-              fontWeight: 900, color: '#E0E0E0',
-              textShadow: '0 2px 60px rgba(0,0,0,0.5), 0 0 100px rgba(58,175,169,0.1)',
-              marginBottom: 32,
-            }}
+            style={{ marginBottom: 32 }}
           >
-            Romy
-          </motion.h1>
+            <ImageMaskText
+              text="ROMY"
+              imageSrc="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=1200&q=80"
+              fontSize={160}
+              fontWeight={900}
+              letterSpacing="-0.05em"
+              lineHeight="0.85"
+              imageFit="cover"
+            />
+          </motion.div>
 
           {/* Tagline */}
           <motion.p
@@ -323,6 +326,9 @@ export default function Romy() {
           </div>
         </div>
       </section>
+
+      {/* ━━ AGENTS WHEEL ━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
+      <ImageWheel />
 
       {/* ━━ CAPABILITIES ━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
       <section style={{ padding: '120px 24px', background: '#EAEAE8' }}>
