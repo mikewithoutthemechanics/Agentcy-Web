@@ -124,20 +124,24 @@ export default function Romy() {
 
       {/* ━━ HERO — Unicorn Scene ━━━━━━━━━━━━━━━━━ */}
       <section style={{
-        position: 'relative', minHeight: '100vh',
+        position: 'relative',
+        minHeight: '100vh',
+        height: 'auto',
         display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
         overflow: 'hidden',
       }}>
-        {/* Unicorn scene background */}
-        <div style={{ position: 'absolute', inset: 0, zIndex: 0 }}>
-          <UnicornScene
-            projectId="G0JsZNbiuJ6601TFJq7N"
-            width="100%"
-            height="100%"
-            scale={1}
-            dpi={1.5}
-            sdkUrl="https://cdn.jsdelivr.net/gh/hiunicornstudio/unicornstudio.js@2.1.6/dist/unicornStudio.umd.js"
-          />
+        {/* Unicorn scene background — full viewport height */}
+        <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, zIndex: 0 }}>
+          <div style={{ width: '100%', height: '100vh' }}>
+            <UnicornScene
+              projectId="G0JsZNbiuJ6601TFJq7N"
+              width="100%"
+              height="100%"
+              scale={1}
+              dpi={1.5}
+              sdkUrl="https://cdn.jsdelivr.net/gh/hiunicornstudio/unicornstudio.js@2.1.6/dist/unicornStudio.umd.js"
+            />
+          </div>
         </div>
 
         {/* Dark overlay for text readability */}

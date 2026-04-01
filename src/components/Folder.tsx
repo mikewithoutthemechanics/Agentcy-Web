@@ -117,8 +117,12 @@ const Folder: React.FC<FolderProps> = ({ color = '#3AAFA9', size = 1, items = []
                 alignItems: 'center',
                 justifyContent: 'center',
                 zIndex: 10,
+                width: '100%',
+                height: '100%',
               }}>
-                {frontIcon}
+                <div style={{ width: '60%', height: '60%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                  {frontIcon}
+                </div>
               </div>
             )}
           </div>
