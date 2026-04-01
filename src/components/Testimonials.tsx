@@ -27,9 +27,9 @@ export default function Testimonials() {
   const prev = () => setCurrent((c) => (c - 1 + testimonials.length) % testimonials.length);
 
   return (
-    <section className="bg-white text-black py-32 px-6 relative z-40">
-      <div className="max-w-5xl mx-auto text-center relative">
-        <div className="min-h-[420px] flex flex-col justify-center items-center">
+    <section className="bg-white text-black py-20 px-6 relative z-40">
+      <div className="max-w-4xl mx-auto text-center relative">
+        <div className="min-h-[280px] flex flex-col justify-center items-center">
           <AnimatePresence mode="wait">
             <motion.div
               key={current}
@@ -37,9 +37,9 @@ export default function Testimonials() {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -50 }}
               transition={{ duration: 0.45 }}
-              className="px-12 md:px-28"
+              className="px-6 md:px-20"
             >
-              <h3 className="text-4xl md:text-6xl font-medium tracking-tight leading-tight mb-12">
+              <h3 className="text-xl md:text-4xl font-medium tracking-tight leading-tight mb-8">
                 "{testimonials[current].quote}"
               </h3>
               <div>
@@ -56,7 +56,7 @@ export default function Testimonials() {
             <button
               key={i}
               onClick={() => setCurrent(i)}
-              className={`w-2 h-2 rounded-full transition-all duration-300 ${i === current ? 'bg-black w-6' : 'bg-gray-300'}`}
+              className={`w-2 h-2 rounded-full transition-all duration-300 ${i === current ? 'bg-[#3AAFA9] w-6' : 'bg-gray-300'}`}
             />
           ))}
         </div>

@@ -1,74 +1,114 @@
 import { motion } from 'motion/react';
-import { ArrowRight } from 'lucide-react';
+import { Bot, Brain, Workflow, Shield, Zap, ArrowRight } from 'lucide-react';
 
 const ease = [0.16, 1, 0.3, 1] as const;
 
-const items = [
-  {
-    title: "Future-\nProofing",
-    desc: "Hear from founders, thinkers, and technologists leading the way in sustainable innovation.",
-    img: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2564&auto=format&fit=crop"
-  },
-  {
-    title: "Driving\nImpact",
-    desc: "Roll up your sleeves in interactive sessions focused on real-world tools and strategies.",
-    img: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2670&auto=format&fit=crop"
-  },
-  {
-    title: "Success\nReimagined",
-    desc: "Power your business with tailored software that makes a measurable impact.",
-    img: "https://images.unsplash.com/photo-1614729939124-032f0b56c9ce?q=80&w=2574&auto=format&fit=crop"
-  }
+const agents = [
+  { icon: Brain, name: 'Analyst', role: 'Research & insight extraction' },
+  { icon: Bot, name: 'Builder', role: 'Code, automation, tools' },
+  { icon: Shield, name: 'QA Reviewer', role: 'Quality assurance & scoring' },
+  { icon: Workflow, name: 'Coordinator', role: 'Project management & handoffs' },
+  { icon: Zap, name: 'Automator', role: 'Workflow & process automation' },
 ];
 
 export default function About() {
   return (
-    <section id="about" className="bg-white text-black py-28 px-6 md:px-10 relative z-20">
-      <div className="max-w-7xl mx-auto">
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-20">
+    <section id="about" style={{ background: '#F5F5F3', color: '#0D1017', padding: '120px 24px', position: 'relative' }}>
+      <div style={{ maxWidth: 1100, margin: '0 auto' }}>
+
+        {/* Heading */}
+        <div style={{ textAlign: 'center', marginBottom: 80 }}>
+          <motion.span
+            initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}
+            style={{ display: 'block', fontSize: 11, fontWeight: 600, letterSpacing: '0.15em', textTransform: 'uppercase', color: 'rgba(13,16,23,0.35)', marginBottom: 16 }}
+          >
+            Meet Romy
+          </motion.span>
           <motion.h2
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-80px' }}
-            transition={{ duration: 0.75, ease }}
-            className="text-[clamp(3rem,8vw,6rem)] font-bold tracking-tighter leading-[0.9]"
-          >
-            What we're<br />all about
-          </motion.h2>
-          <motion.button
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
+            initial={{ opacity: 0, y: 30, clipPath: 'inset(100% 0 0 0)' }}
+            whileInView={{ opacity: 1, y: 0, clipPath: 'inset(0% 0 0 0)' }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.25 }}
-            whileHover={{ x: 4 }}
-            className="flex items-center gap-2 mt-8 md:mt-0 text-sm font-semibold uppercase tracking-widest hover:text-gray-400 transition-colors"
+            transition={{ duration: 0.9, ease }}
+            style={{ fontSize: 'clamp(36px, 6vw, 64px)', fontFamily: "'Space Grotesk', sans-serif", fontWeight: 800, letterSpacing: '-0.03em', lineHeight: 1.05 }}
           >
-            <ArrowRight className="w-4 h-4" /> Get in touch
-          </motion.button>
+            One orchestrator.<br />
+            <span style={{ color: '#3AAFA9' }}>Five specialist agents.</span>
+          </motion.h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-          {items.map((item, i) => (
+        {/* Description */}
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          style={{ fontSize: 17, lineHeight: 1.8, color: 'rgba(13,16,23,0.5)', textAlign: 'center', maxWidth: 600, margin: '0 auto 72px' }}
+        >
+          Romy is your lead agent — she understands your request, breaks it into tasks, and delegates to the right specialist. Every output gets quality-checked before it reaches you.
+        </motion.p>
+
+        {/* Romy orchestrator — center */}
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginBottom: 64 }}>
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, ease }}
+            style={{
+              width: 100, height: 100, borderRadius: 28,
+              background: 'linear-gradient(135deg, #3AAFA9, #2D9E98)',
+              display: 'flex', alignItems: 'center', justifyContent: 'center',
+              boxShadow: '0 16px 48px rgba(58,175,169,0.2)',
+              marginBottom: 20, position: 'relative',
+            }}
+          >
+            <span style={{ fontSize: 40, fontWeight: 900, color: '#fff', letterSpacing: '-0.03em' }}>R</span>
+            {/* Pulse ring */}
             <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 50 }}
+              animate={{ scale: [1, 1.5], opacity: [0.3, 0] }}
+              transition={{ duration: 2, repeat: Infinity }}
+              style={{ position: 'absolute', inset: -8, borderRadius: 32, border: '2px solid rgba(58,175,169,0.2)' }}
+            />
+          </motion.div>
+          <p style={{ fontSize: 14, fontWeight: 700, color: '#0D1017', letterSpacing: '0.05em', textTransform: 'uppercase' }}>Orchestrator</p>
+          <p style={{ fontSize: 13, color: 'rgba(13,16,23,0.4)', marginTop: 4 }}>Understands · Plans · Delegates · Delivers</p>
+        </div>
+
+        {/* Connecting line */}
+        <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 48 }}>
+          <div style={{ width: 1, height: 40, background: 'linear-gradient(to bottom, rgba(58,175,169,0.3), transparent)' }} />
+        </div>
+
+        {/* Agent cards */}
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: 16 }}>
+          {agents.map((agent, i) => (
+            <motion.div
+              key={agent.name}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-60px' }}
-              transition={{ duration: 0.7, delay: i * 0.1, ease }}
-              className="flex flex-col group"
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.08, duration: 0.5, ease }}
+              whileHover={{ y: -4, boxShadow: '0 12px 32px rgba(0,0,0,0.06)' }}
+              style={{
+                padding: 24, borderRadius: 16,
+                background: '#fff',
+                border: '1px solid rgba(0,0,0,0.05)',
+                cursor: 'default',
+                transition: 'box-shadow 0.3s, transform 0.3s',
+              }}
             >
-              <h3 className="text-[clamp(1.75rem,3vw,2.25rem)] font-bold leading-tight mb-5 whitespace-pre-line tracking-tight">{item.title}</h3>
-              <p className="text-gray-500 mb-8 text-base leading-relaxed">{item.desc}</p>
-              <div className="mt-auto aspect-[4/5] rounded-3xl overflow-hidden bg-gray-100">
-                <img
-                  src={item.img}
-                  alt={item.title.replace('\n', ' ')}
-                  className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700 ease-out"
-                />
+              <div style={{
+                width: 40, height: 40, borderRadius: 10, marginBottom: 14,
+                display: 'flex', alignItems: 'center', justifyContent: 'center',
+                background: 'rgba(58,175,169,0.06)',
+              }}>
+                <agent.icon size={18} color="#3AAFA9" />
               </div>
+              <h3 style={{ fontSize: 15, fontWeight: 700, marginBottom: 6, color: '#0D1017' }}>{agent.name}</h3>
+              <p style={{ fontSize: 12, lineHeight: 1.5, color: 'rgba(13,16,23,0.45)' }}>{agent.role}</p>
             </motion.div>
           ))}
         </div>
+
       </div>
     </section>
   );

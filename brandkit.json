@@ -1,0 +1,33 @@
+{
+  "name": "Agentcy",
+  "tagline": "Leaders in software. Experts in intelligence.",
+  "colors": {
+    "primary": "#000000",
+    "secondary": "#FFFFFF",
+    "accent": "#C0C0C0",
+    "accentLight": "#D4D4D4",
+    "accentDark": "#808080",
+    "graphite": "#2D2D2D",
+    "silver": "#C0C0C0",
+    "warmWhite": "#F5F5F0"
+  },
+  "typography": {
+    "primary": "Inter",
+    "weights": {
+      "heading": "800-900",
+      "body": "400-500",
+      "button": "700"
+    }
+  },
+  "style": {
+    "mode": "dark-first",
+    "buttons": "rounded-full",
+    "shadows": "subtle",
+    "animations": "smooth, minimal"
+  },
+  "logo": {
+    "wordmark": "Agentcy®",
+    "icon": "pending-design"
+  },
+  "tone": "Premium, direct, technical but approachable. No fluff."
+}

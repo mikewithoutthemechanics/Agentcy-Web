@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agentcy — Hero Video Options</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #000; color: #fff; font-family: 'Space Grotesk', system-ui, sans-serif; padding: 40px 20px; }
+    h1 { text-align: center; margin-bottom: 8px; font-size: 28px; color: #C0C0C0; font-weight: 700; }
+    .sub { text-align: center; color: #666; margin-bottom: 50px; font-size: 14px; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 16px; max-width: 1500px; margin: 0 auto; }
+    .option { position: relative; border-radius: 16px; overflow: hidden; border: 2px solid #1a1a1a; cursor: pointer; transition: all 0.3s; }
+    .option:hover { border-color: #C0C0C0; transform: scale(1.02); z-index: 10; }
+    .option video { width: 100%; aspect-ratio: 16/9; object-fit: cover; display: block; }
+    .option .label { position: absolute; bottom: 0; left: 0; right: 0; padding: 16px; background: linear-gradient(transparent, rgba(0,0,0,0.95)); }
+    .option .label .name { font-weight: 700; color: #fff; font-size: 14px; }
+    .option .label .desc { color: #888; font-size: 11px; margin-top: 3px; }
+    .option .num { position: absolute; top: 10px; left: 10px; background: rgba(0,0,0,0.8); color: #C0C0C0; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 12px; backdrop-filter: blur(8px); }
+  </style>
+</head>
+<body>
+  <h1>Agentcy — Pick Your Hero Video</h1>
+  <p class="sub">All free for commercial use · Tell me the letter</p>
+  <div class="grid">
+    <div class="option"><div class="num">A</div><video src="/hero-opt-a.mp4" autoplay muted loop playsinline></video><div class="label"><div class="name">VR Focus</div><div class="desc">Futuristic, human + tech fusion</div></div></div>
+    <div class="option"><div class="num">B</div><video src="/hero-opt-b.mp4" autoplay muted loop playsinline></video><div class="label"><div class="name">Futuristic Screen</div><div class="desc">Digital interface, dark</div></div></div>
+    <div class="option"><div class="num">C</div><video src="/hero-opt-c.mp4" autoplay muted loop playsinline></video><div class="label"><div class="name">Digital Data</div><div class="desc">Data streams, tech</div></div></div>
+    <div class="option"><div class="num">D</div><video src="/hero-opt-d.mp4" autoplay muted loop playsinline></video><div class="label"><div class="name">Night City</div><div class="desc">Urban cinematic, dark moody</div></div></div>
+    <div class="option"><div class="num">E</div><video src="/hero-opt-e.mp4" autoplay muted loop playsinline></video><div class="label"><div class="name">Dark Tech</div><div class="desc">Server room, blue lights</div></div></div>
+    <div class="option"><div class="num">F</div><video src="/hero-opt-f.mp4" autoplay muted loop playsinline></video><div class="label"><div class="name">Abstract Particles</div><div class="desc">Floating elements, AI feel</div></div></div>
+    <div class="option"><div class="num">G</div><video src="/hero-opt-g.mp4" autoplay muted loop playsinline></video><div class="label"><div class="name">Laptop in Dark</div><div class="desc">Developer at work, moody</div></div></div>
+    <div class="option"><div class="num">H</div><video src="/hero-opt-h.mp4" autoplay muted loop playsinline></video><div class="label"><div class="name">Data Center</div><div class="desc">Infrastructure, power</div></div></div>
+    <div class="option"><div class="num">I</div><video src="/hero-opt-i.mp4" autoplay muted loop playsinline></video><div class="label"><div class="name">Cinematic Typing</div><div class="desc">Hands on keyboard, close-up</div></div></div>
+    <div class="option"><div class="num">J</div><video src="/hero-opt-j.mp4" autoplay muted loop playsinline></video><div class="label"><div class="name">Neon City</div><div class="desc">Nightlife, urban energy</div></div></div>
+  </div>
+</body>
+</html>

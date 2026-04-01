@@ -1,33 +1,58 @@
-import { motion } from 'motion/react';
+import { useEffect, useRef, useState } from 'react';
+import { motion, useInView } from 'motion/react';
 import { ArrowRight } from 'lucide-react';
 
+const ease = [0.16, 1, 0.3, 1] as const;
+
+function AnimatedCounter({ target, suffix = '', duration = 2500, decimals = 0 }: { target: number; suffix?: string; duration?: number; decimals?: number }) {
+  const [count, setCount] = useState(0);
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
+
+  useEffect(() => {
+    if (!isInView) return;
+    const startTime = performance.now();
+    const animate = (now: number) => {
+      const elapsed = now - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      // Ease-out cubic
+      const eased = 1 - Math.pow(1 - progress, 3);
+      setCount(parseFloat((eased * target).toFixed(decimals)));
+      if (progress < 1) requestAnimationFrame(animate);
+    };
+    requestAnimationFrame(animate);
+  }, [isInView, target, duration, decimals]);
+
+  return <span ref={ref}>{decimals > 0 ? count.toFixed(decimals) : Math.round(count)}{suffix}</span>;
+}
+
 const stats = [
-  { value: "200+", label: "Clients Served" },
-  { value: "98%", label: "Retention Rate" },
-  { value: "3.2x", label: "Avg. ROI" },
-  { value: "5yrs", label: "In Operation" }
+  { value: 200, suffix: '+', label: 'Projects Delivered', decimals: 0 },
+  { value: 98, suffix: '%', label: 'Client Retention', decimals: 0 },
+  { value: 3.2, suffix: 'x', label: 'Avg. ROI', decimals: 1 },
+  { value: 5, suffix: 'yrs', label: 'In Operation', decimals: 0 }
 ];
 
 const packages = [
   {
-    title: "Seamless\nand\nSecure",
-    desc: "Perfect for businesses ready to automate their first workflow and see immediate results.",
-    features: ["Business Audit", "1 Custom Agent", "30-day support", "Integration setup"],
-    btn: "Get started",
+    title: "Starter\nBuild",
+    desc: "One custom tool or automation — built, deployed, and handed over with training and support.",
+    features: ["1 custom build", "Full integration", "30-day support", "Documentation & handover"],
+    btn: "Start here",
     highlight: false
   },
   {
-    title: "Full\nIntegration",
-    desc: "Everything you need to transform your operations with a suite of connected AI agents.",
-    features: ["Full Business Audit", "Up to 5 Agents", "90-day support", "Ongoing optimisation", "Priority access"],
+    title: "Full\nStack",
+    desc: "Multiple software products, AI layers, and integrations working together as one system.",
+    features: ["Multi-product build", "AI & automation layer", "90-day support", "Ongoing optimisation", "Priority access"],
     btn: "Work with us",
     highlight: true
   },
   {
     title: "Enterprise\nSuite",
-    desc: "A fully custom AI transformation for larger teams and complex business environments.",
-    features: ["Full Audit + Strategy", "Unlimited Agents", "Dedicated agent manager", "SLA-backed support", "Quarterly reviews"],
-    btn: "Contact us",
+    desc: "A fully custom software ecosystem — built for scale, complexity, and teams that move fast.",
+    features: ["Unlimited builds", "Dedicated engineer", "SLA-backed support", "Quarterly roadmap reviews", "On-call team"],
+    btn: "Let's talk",
     highlight: false
   }
 ];
@@ -54,11 +79,11 @@ export default function Tickets() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-xl text-gray-500 max-w-sm mt-8 md:mt-0 leading-relaxed"
           >
-            We pride our reputation as being the innovation leaders in AI Integration
+            Numbers that speak for themselves
           </motion.p>
         </div>
 
-        {/* Stats Row */}
+        {/* Animated Stats */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-gray-200 rounded-2xl overflow-hidden mb-20">
           {stats.map((stat, i) => (
             <motion.div
@@ -66,10 +91,12 @@ export default function Tickets() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.08 }}
+              transition={{ duration: 0.5, delay: i * 0.1 }}
               className="bg-white px-8 py-10 flex flex-col"
             >
-              <span className="text-5xl md:text-6xl font-bold tracking-tighter mb-2">{stat.value}</span>
+              <span className="text-5xl md:text-6xl font-bold tracking-tighter mb-2">
+                <AnimatedCounter target={stat.value} suffix={stat.suffix} decimals={stat.decimals} />
+              </span>
               <span className="text-gray-500 text-sm uppercase tracking-wider font-semibold">{stat.label}</span>
             </motion.div>
           ))}
@@ -84,24 +111,47 @@ export default function Tickets() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: i * 0.1 }}
-              className={`rounded-[2rem] p-10 flex flex-col min-h-[540px] ${pkg.highlight ? 'bg-black text-white' : 'bg-[#0a0a0a] text-white'}`}
+              className={`relative rounded-[2rem] p-10 flex flex-col min-h-[500px] overflow-hidden ${
+                pkg.highlight
+                  ? 'text-[#0D1017] ring-1 ring-white/10'
+                  : 'text-[#0D1017]'
+              }`}
+              style={
+                pkg.highlight
+                  ? { background: 'linear-gradient(135deg, #0D1017 0%, #1a1a2e 100%)' }
+                  : i === 0
+                    ? { background: '#F0F0EE', border: '1px solid rgba(13,16,23,0.06)' }
+                    : { background: 'linear-gradient(135deg, #F0F0EE 0%, #E2E6E4 100%)', border: '1px solid rgba(13,16,23,0.06)' }
+              }
             >
-              <h3 className="text-4xl md:text-5xl font-bold tracking-tight whitespace-pre-line mb-8">{pkg.title}</h3>
-              <p className="text-gray-400 text-lg leading-relaxed mb-8">{pkg.desc}</p>
-              <ul className="mt-auto space-y-3 mb-8">
+              {/* Accent corner glow */}
+              {pkg.highlight && (
+                <div className="absolute -top-20 -right-20 w-60 h-60 rounded-full opacity-20" style={{ background: 'radial-gradient(circle, #3AAFA9, transparent 70%)' }} />
+              )}
+              {!pkg.highlight && i === 0 && (
+                <div className="absolute -top-20 -right-20 w-60 h-60 rounded-full opacity-8" style={{ background: 'radial-gradient(circle, #3AAFA9, transparent 70%)' }} />
+              )}
+              {!pkg.highlight && i === 2 && (
+                <div className="absolute -top-20 -right-20 w-60 h-60 rounded-full opacity-8" style={{ background: 'radial-gradient(circle, #C0C0C0, transparent 70%)' }} />
+              )}
+
+              <h3 className="text-4xl md:text-5xl font-bold tracking-tight whitespace-pre-line mb-6 relative z-10" style={{ color: pkg.highlight ? '#fff' : '#0D1017' }}>{pkg.title}</h3>
+              <p className="text-lg leading-relaxed mb-8 relative z-10" style={{ color: pkg.highlight ? '#888' : 'rgba(13,16,23,0.5)' }}>{pkg.desc}</p>
+              <ul className="mt-auto space-y-3 mb-8 relative z-10">
                 {pkg.features.map((f, j) => (
-                  <li key={j} className="flex items-center gap-3 text-gray-300 text-sm">
-                    <span className="w-1.5 h-1.5 rounded-full bg-white/50 shrink-0" />
+                  <li key={j} className="flex items-center gap-3 text-sm" style={{ color: pkg.highlight ? '#aaa' : 'rgba(13,16,23,0.6)' }}>
+                    <span className={`w-1.5 h-1.5 rounded-full shrink-0 ${pkg.highlight ? 'bg-[#3AAFA9]' : i === 0 ? 'bg-[#3AAFA9]/60' : 'bg-[#C0C0C0]'}`} />
                     {f}
                   </li>
                 ))}
               </ul>
               <button
-                className={`w-full py-4 rounded-full flex items-center justify-center gap-2 font-semibold transition-colors ${
+                className={`w-full py-4 rounded-full flex items-center justify-center gap-2 font-semibold transition-all relative z-10 ${
                   pkg.highlight
-                    ? 'bg-white text-black hover:bg-gray-200'
-                    : 'border border-white/20 hover:bg-white/10'
+                    ? 'bg-[#3AAFA9] text-black hover:bg-[#4ABFBA] hover:shadow-lg hover:shadow-[#3AAFA9]/20'
+                    : 'border hover:bg-black/5'
                 }`}
+                style={pkg.highlight ? {} : { borderColor: 'rgba(13,16,23,0.12)', color: '#0D1017' }}
               >
                 <ArrowRight className="w-5 h-5" /> {pkg.btn}
               </button>

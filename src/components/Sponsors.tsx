@@ -34,18 +34,6 @@ export default function Sponsors() {
             </motion.div>
           ))}
 
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.4, delay: sponsors.length * 0.04 }}
-            className="aspect-[2/1] bg-black text-white rounded-2xl flex flex-col items-center justify-center gap-3 p-6"
-          >
-            <p className="text-sm font-bold text-center leading-tight">Become a<br />partner</p>
-            <button className="flex items-center gap-1.5 bg-white text-black px-4 py-2 rounded-full text-xs font-bold hover:bg-white/90 transition-colors">
-              <ArrowRight className="w-3.5 h-3.5" /> Get in touch
-            </button>
-          </motion.div>
         </div>
       </div>
     </section>

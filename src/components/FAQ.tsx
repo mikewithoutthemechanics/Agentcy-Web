@@ -42,16 +42,16 @@ export default function FAQ() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-6xl md:text-8xl font-bold tracking-tighter mb-8"
+            className="text-5xl md:text-8xl font-bold tracking-tighter mb-8"
           >
             FAQ
           </motion.h2>
           <p className="text-xl text-gray-500 mb-8 leading-relaxed">
             Still got questions? Feel free to reach out. We're happy to help.
           </p>
-          <button className="flex items-center gap-2 font-semibold hover:text-gray-500 transition-colors">
+          <a href="#contact" className="flex items-center gap-2 font-semibold hover:text-gray-500 transition-colors">
             <ArrowRight className="w-5 h-5" /> Ask a question
-          </button>
+          </a>
         </div>
 
         {/* Right col */}
@@ -60,9 +60,9 @@ export default function FAQ() {
             <div key={i} className="border-b border-gray-200">
               <button
                 onClick={() => setOpenIndex(openIndex === i ? null : i)}
-                className="w-full py-8 flex items-center justify-between text-left hover:text-gray-500 transition-colors"
+                className="w-full py-6 md:py-8 flex items-center justify-between text-left hover:text-gray-500 transition-colors"
               >
-                <span className="text-xl md:text-2xl font-medium pr-8">{faq.q}</span>
+                <span className="text-lg md:text-2xl font-medium pr-6">{faq.q}</span>
                 <ChevronDown
                   className={`w-6 h-6 shrink-0 transition-transform duration-300 ${openIndex === i ? 'rotate-180' : ''}`}
                 />

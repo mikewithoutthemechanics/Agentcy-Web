@@ -5,24 +5,19 @@ const ease = [0.16, 1, 0.3, 1] as const;
 
 const team = [
   {
-    name: "Marcus Reid",
-    role: "Founder & CEO",
-    img: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=987&auto=format&fit=crop"
+    name: "Michael Kidd",
+    role: "Founder & Lead Developer",
+    img: "/michael-kidd.jpg"
   },
   {
-    name: "Amara Osei",
-    role: "Chief AI Officer",
-    img: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=988&auto=format&fit=crop"
-  },
-  {
-    name: "Lena Fischer",
-    role: "Head of Integration",
-    img: "https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=961&auto=format&fit=crop"
-  },
-  {
-    name: "David Nkosi",
-    role: "Lead Engineer",
+    name: "Ryan Paul",
+    role: "Technical Director",
     img: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=987&auto=format&fit=crop"
+  },
+  {
+    name: "Marvin Saunders",
+    role: "Strategy & Operations",
+    img: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=987&auto=format&fit=crop"
   }
 ];
 
@@ -59,7 +54,7 @@ export default function Team() {
         </div>
 
         {/* Team Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-5 md:gap-6">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-5 md:gap-6">
           {team.map((member, i) => (
             <motion.div
               key={i}
@@ -69,7 +64,7 @@ export default function Team() {
               transition={{ duration: 0.6, delay: i * 0.08, ease }}
               className="flex flex-col group cursor-pointer"
             >
-              <div className="aspect-[3/4] rounded-3xl overflow-hidden bg-gray-100 mb-4">
+              <div className="aspect-square md:aspect-[3/4] rounded-2xl md:rounded-3xl overflow-hidden bg-gray-100 mb-4">
                 <img
                   src={member.img}
                   alt={member.name}

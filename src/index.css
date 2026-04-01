@@ -1,12 +1,17 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap');
 @import "tailwindcss";
 
 @theme {
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --color-silver: #3AAFA9;
+  --color-silver-light: #4ABFBA;
+  --color-silver-dark: #2A8B8B;
+  --color-graphite: #2D2D2D;
+  --color-warm-white: #F5F5F0;
 }
 
 body {
-  font-family: "Inter", sans-serif;
+  font-family: "Space Grotesk", sans-serif;
   background-color: #000;
   color: #fff;
   overflow-x: hidden;
@@ -14,4 +19,41 @@ body {
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+/* Hide scrollbar for carousel */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Silver accent utilities */
+.text-silver { color: #3AAFA9; }
+.text-silver-dark { color: #2A8B8B; }
+.bg-graphite { background-color: #2D2D2D; }
+.border-silver\/20 { border-color: rgba(58,175,169,0.2); }
+.border-silver\/30 { border-color: rgba(58,175,169,0.3); }
+
+/* Global noise overlay */
+.noise-overlay::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 9998;
+  pointer-events: none;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 256px;
+}
+
+
+/* Hero video slow zoom */
+@keyframes heroZoom {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.08); }
 }
