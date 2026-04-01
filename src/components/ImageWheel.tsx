@@ -36,14 +36,24 @@ export default function ImageWheel() {
           </p>
         </motion.div>
 
-        <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.4 }} style={{ marginTop: 40 }}>
-          <a href="#contact" style={{
-            display: 'inline-flex', alignItems: 'center', gap: 8,
-            padding: '14px 32px', borderRadius: 100,
-            background: '#3AAFA9', color: '#0D1017', fontSize: 14, fontWeight: 600,
-            textDecoration: 'none', boxShadow: '0 4px 20px rgba(58,175,169,0.3)',
-          }}>Start Building</a>
-        </motion.div>
+      {/* Button over Unicorn Studio tag */}
+      <div style={{
+        position: 'absolute',
+        bottom: 12,
+        right: 12,
+        zIndex: 10,
+      }}>
+        <a href="#contact" style={{
+          display: 'inline-flex', alignItems: 'center', gap: 8,
+          padding: '10px 24px', borderRadius: 100,
+          background: 'rgba(10,10,15,0.85)',
+          backdropFilter: 'blur(12px)',
+          color: '#3AAFA9', fontSize: 13, fontWeight: 600,
+          textDecoration: 'none',
+          border: '1px solid rgba(58,175,169,0.3)',
+          boxShadow: '0 4px 20px rgba(0,0,0,0.3)',
+        }}>Start Building</a>
+      </div>
       </div>
     </section>
   );
