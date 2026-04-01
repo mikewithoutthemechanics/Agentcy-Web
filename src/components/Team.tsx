@@ -17,7 +17,7 @@ const team = [
   {
     name: "Marvin Saunders",
     role: "Strategy & Operations",
-    img: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=987&auto=format&fit=crop"
+    img: "/marvin-saunders.jpg"
   }
 ];
 
