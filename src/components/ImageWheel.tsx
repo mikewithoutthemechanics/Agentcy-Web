@@ -27,14 +27,13 @@ export default function ImageWheel() {
     return () => window.removeEventListener('resize', check);
   }, []);
 
-  const itemSize = isMobile ? 100 : 150;
-  const wheelRadius = isMobile ? 130 : 210;
-  const size = wheelRadius * 2 + itemSize + 80;
-  const center = size / 2;
-  const angleStep = 360 / count;
+  const itemSize = isMobile ? 90 : 140;
+  const orbitRadius = isMobile ? 130 : 200;
+  const containerSize = orbitRadius * 2 + itemSize + 40;
+  const center = containerSize / 2;
 
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
-  const [rotation, setRotation] = useState(0);
+  const [angle, setAngle] = useState(0);
   const [isDragging, setIsDragging] = useState(false);
   const [velocity, setVelocity] = useState(0);
   const lastX = useRef(0);
@@ -44,13 +43,13 @@ export default function ImageWheel() {
   // Auto-rotate
   useEffect(() => {
     const tick = () => {
-      setRotation(r => {
-        if (isDragging) return r;
+      setAngle(a => {
+        if (isDragging) return a;
         if (Math.abs(velocity) > 0.02) {
           setVelocity(v => v * 0.96);
-          return r + velocity;
+          return a + velocity;
         }
-        return r + 0.05;
+        return a + 0.3;
       });
       animRef.current = requestAnimationFrame(tick);
     };
@@ -71,8 +70,8 @@ export default function ImageWheel() {
     const now = performance.now();
     const dx = e.clientX - lastX.current;
     const dt = now - lastTime.current;
-    const v = dx * 0.25;
-    setRotation(r => r + v);
+    const v = dx * 0.4;
+    setAngle(a => a + v);
     if (dt > 0) setVelocity(v * (16 / dt));
     lastX.current = e.clientX;
     lastTime.current = now;
@@ -110,7 +109,7 @@ export default function ImageWheel() {
         </motion.div>
       </div>
 
-      {/* Wheel */}
+      {/* Orbit system */}
       <div
         onPointerDown={onDown}
         onPointerMove={onMove}
@@ -126,143 +125,123 @@ export default function ImageWheel() {
         }}
       >
         <div style={{
-          width: size,
-          height: size,
+          width: containerSize,
+          height: containerSize,
           position: 'relative',
-          perspective: 1200,
         }}>
+          {/* Center Romy — fixed, doesn't rotate */}
           <div style={{
-            width: '100%',
-            height: '100%',
-            position: 'relative',
-            transformStyle: 'preserve-3d',
-            transform: `rotateX(-10deg) rotateY(${rotation}deg)`,
+            position: 'absolute',
+            left: '50%',
+            top: '50%',
+            transform: 'translate(-50%, -50%)',
+            zIndex: 20,
+            textAlign: 'center',
           }}>
-            {/* Center "Romy" */}
             <div style={{
-              position: 'absolute',
-              left: '50%',
-              top: '50%',
-              transform: `translate(-50%, -50%) rotateY(${-rotation}deg) rotateX(10deg)`,
-              textAlign: 'center',
-              pointerEvents: 'none',
-              zIndex: 5,
+              width: isMobile ? 56 : 72,
+              height: isMobile ? 56 : 72,
+              borderRadius: '50%',
+              background: '#0D1017',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              boxShadow: '0 8px 32px rgba(13,16,23,0.2)',
+              border: '3px solid rgba(58,175,169,0.3)',
             }}>
-              <div style={{
-                width: 64,
-                height: 64,
-                borderRadius: '50%',
-                background: '#0D1017',
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'center',
-                justifyContent: 'center',
-                margin: '0 auto',
-                boxShadow: '0 4px 24px rgba(13,16,23,0.15)',
-              }}>
-                <span style={{
-                  fontSize: 16,
-                  fontWeight: 800,
-                  color: '#3AAFA9',
-                  fontFamily: "'Space Grotesk', sans-serif",
-                  letterSpacing: '-0.02em',
-                  lineHeight: 1,
-                }}>Romy</span>
-              </div>
+              <span style={{
+                fontSize: isMobile ? 14 : 18,
+                fontWeight: 800,
+                color: '#3AAFA9',
+                fontFamily: "'Space Grotesk', sans-serif",
+              }}>Romy</span>
             </div>
-
-            {/* Cards */}
-            {agents.map((agent, i) => {
-              const angle = (i * angleStep - 90) * (Math.PI / 180);
-              const x = center + wheelRadius * Math.cos(angle) - itemSize / 2;
-              const y = center + wheelRadius * Math.sin(angle) - itemSize / 2;
-              const isHovered = hoveredIndex === i;
-
-              return (
-                <div
-                  key={agent.name}
-                  onMouseEnter={() => setHoveredIndex(i)}
-                  onMouseLeave={() => setHoveredIndex(null)}
-                  style={{
-                    position: 'absolute',
-                    left: x,
-                    top: y,
-                    width: itemSize,
-                    height: itemSize,
-                    zIndex: isHovered ? 10 : 1,
-                    transformStyle: 'preserve-3d',
-                    transform: `rotateY(${-rotation}deg) rotateX(10deg)` +
-                      (isHovered ? ' translateY(-28px) scale(1.08)' : ''),
-                    transition: 'transform 0.35s cubic-bezier(.22,1,.36,1)',
-                  }}
-                >
-                  {/* Image circle */}
-                  <div style={{
-                    width: '100%',
-                    height: itemSize - 8,
-                    borderRadius: '50%',
-                    overflow: 'hidden',
-                    border: `3px solid ${isHovered ? agent.color : 'rgba(245,245,243,0.8)'}`,
-                    boxShadow: isHovered
-                      ? `0 16px 48px ${agent.color}30, 0 0 0 6px ${agent.color}10`
-                      : '0 4px 20px rgba(0,0,0,0.08)',
-                    transition: 'border-color 0.3s, box-shadow 0.3s',
-                    position: 'relative',
-                    background: '#E8E8E6',
-                  }}>
-                    <img
-                      src={agent.image}
-                      alt={agent.name}
-                      style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
-                      loading="lazy"
-                    />
-                    {/* Gradient overlay on hover */}
-                    <div style={{
-                      position: 'absolute',
-                      inset: 0,
-                      background: `linear-gradient(transparent 50%, ${agent.color}40)`,
-                      opacity: isHovered ? 1 : 0,
-                      transition: 'opacity 0.3s',
-                    }} />
-                    {/* Name */}
-                    <div style={{
-                      position: 'absolute',
-                      bottom: 10,
-                      left: 0,
-                      right: 0,
-                      textAlign: 'center',
-                      opacity: isHovered ? 1 : 0,
-                      transform: isHovered ? 'translateY(0)' : 'translateY(4px)',
-                      transition: 'all 0.3s',
-                    }}>
-                      <span style={{
-                        fontSize: isMobile ? 12 : 16,
-                        fontWeight: 800,
-                        color: '#fff',
-                        fontFamily: "'Space Grotesk', sans-serif",
-                        letterSpacing: '-0.01em',
-                        textShadow: '0 1px 4px rgba(0,0,0,0.3)',
-                      }}>{agent.name}</span>
-                    </div>
-                  </div>
-
-                  {/* Action label */}
-                  <p style={{
-                    textAlign: 'center',
-                    fontSize: isMobile ? 11 : 13,
-                    color: isHovered ? agent.color : 'rgba(13,16,23,0.3)',
-                    fontStyle: 'italic',
-                    fontFamily: "'Georgia', 'Palatino Linotype', serif",
-                    marginTop: 6,
-                    marginBottom: 0,
-                    transition: 'color 0.3s',
-                  }}>
-                    {agent.action.toLowerCase()}
-                  </p>
-                </div>
-              );
-            })}
           </div>
+
+          {/* Orbiting cards */}
+          {agents.map((agent, i) => {
+            const itemAngle = ((angle + i * (360 / count)) * Math.PI) / 180;
+            const x = center + orbitRadius * Math.cos(itemAngle) - itemSize / 2;
+            const y = center + orbitRadius * Math.sin(itemAngle) - itemSize / 2;
+            const isHovered = hoveredIndex === i;
+
+            // Scale based on vertical position (closer = bigger)
+            const depthScale = 0.85 + 0.15 * ((Math.sin(itemAngle) + 1) / 2);
+            const depthOpacity = 0.6 + 0.4 * ((Math.sin(itemAngle) + 1) / 2);
+
+            return (
+              <div
+                key={agent.name}
+                onMouseEnter={() => setHoveredIndex(i)}
+                onMouseLeave={() => setHoveredIndex(null)}
+                style={{
+                  position: 'absolute',
+                  left: x,
+                  top: y,
+                  width: itemSize,
+                  height: itemSize,
+                  zIndex: isHovered ? 15 : Math.round(depthScale * 10),
+                  transform: `scale(${isHovered ? depthScale * 1.12 : depthScale})`,
+                  opacity: isHovered ? 1 : depthOpacity,
+                  transition: 'transform 0.3s cubic-bezier(.22,1,.36,1), opacity 0.3s',
+                }}
+              >
+                {/* Circle image */}
+                <div style={{
+                  width: '100%',
+                  height: itemSize - 6,
+                  borderRadius: '50%',
+                  overflow: 'hidden',
+                  border: `3px solid ${isHovered ? agent.color : 'rgba(245,245,243,0.9)'}`,
+                  boxShadow: isHovered
+                    ? `0 12px 40px ${agent.color}25, 0 0 0 5px ${agent.color}08`
+                    : '0 4px 16px rgba(0,0,0,0.06)',
+                  transition: 'border-color 0.3s, box-shadow 0.3s',
+                  position: 'relative',
+                  background: '#E8E8E6',
+                }}>
+                  <img
+                    src={agent.image}
+                    alt={agent.name}
+                    style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+                    loading="lazy"
+                  />
+                  {/* Name on hover */}
+                  <div style={{
+                    position: 'absolute',
+                    bottom: 8,
+                    left: 0,
+                    right: 0,
+                    textAlign: 'center',
+                    opacity: isHovered ? 1 : 0,
+                    transition: 'opacity 0.3s',
+                  }}>
+                    <span style={{
+                      fontSize: isMobile ? 11 : 15,
+                      fontWeight: 800,
+                      color: '#fff',
+                      fontFamily: "'Space Grotesk', sans-serif",
+                      textShadow: '0 1px 6px rgba(0,0,0,0.4)',
+                    }}>{agent.name}</span>
+                  </div>
+                </div>
+
+                {/* Label */}
+                <p style={{
+                  textAlign: 'center',
+                  fontSize: isMobile ? 10 : 12,
+                  color: isHovered ? agent.color : 'rgba(13,16,23,0.3)',
+                  fontStyle: 'italic',
+                  fontFamily: "'Georgia', 'Palatino Linotype', serif",
+                  marginTop: 4,
+                  marginBottom: 0,
+                  transition: 'color 0.3s',
+                }}>
+                  {agent.action.toLowerCase()}
+                </p>
+              </div>
+            );
+          })}
         </div>
       </div>
 
@@ -273,7 +252,7 @@ export default function ImageWheel() {
         marginTop: 20,
         letterSpacing: '0.12em',
         textTransform: 'uppercase',
-      }}>Drag to rotate · Hover to explore</p>
+      }}>Drag to orbit · Hover to explore</p>
 
       {/* CTA */}
       <motion.div
