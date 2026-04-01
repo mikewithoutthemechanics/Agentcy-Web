@@ -2,43 +2,10 @@ import { motion } from 'motion/react';
 import { ArrowRight, Bot, Zap, Brain, Layers, MessageSquare, Workflow, ChevronRight } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import ImageMaskText from './ImageMaskText';
-import ImageWheel from './ImageWheel';
+import UnicornScene from 'unicornstudio-react';
+import TiltHalo from './TiltHalo';
 
 const ease = [0.16, 1, 0.3, 1] as const;
-
-// ── Particle Field ──────────────────────────────────
-function ParticleField() {
-  const particles = Array.from({ length: 40 }, (_, i) => ({
-    id: i,
-    x: `${Math.random() * 100}%`,
-    y: `${Math.random() * 100}%`,
-    size: 1 + Math.random() * 2.5,
-    duration: 15 + Math.random() * 25,
-    delay: Math.random() * 10,
-    opacity: 0.06 + Math.random() * 0.15,
-  }));
-
-  return (
-    <div style={{ position: 'absolute', inset: 0, zIndex: 1, pointerEvents: 'none', overflow: 'hidden' }}>
-      {particles.map(p => (
-        <div key={p.id} style={{
-          position: 'absolute', left: p.x, top: p.y,
-          width: p.size, height: p.size, borderRadius: '50%',
-          background: '#3AAFA9', opacity: p.opacity,
-          animation: `particleFloat ${p.duration}s linear ${p.delay}s infinite`,
-        }} />
-      ))}
-      <style>{`
-        @keyframes particleFloat {
-          0% { transform: translateY(0) translateX(0); opacity: 0; }
-          10% { opacity: 1; }
-          90% { opacity: 1; }
-          100% { transform: translateY(-100vh) translateX(30px); opacity: 0; }
-        }
-      `}</style>
-    </div>
-  );
-}
 
 // ── Typing Text ─────────────────────────────────────
 function TypingText({ text, delay = 0 }: { text: string; delay?: number }) {
@@ -128,16 +95,16 @@ export default function Romy() {
         transition={{ duration: 0.6, ease }}
         className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 md:px-10 py-6 max-w-7xl mx-auto"
         style={scrolled ? {
-          backgroundColor: 'rgba(245,245,243,0.92)',
+          backgroundColor: 'rgba(13,16,23,0.9)',
           backdropFilter: 'blur(20px)',
-          borderBottom: '1px solid rgba(13,16,23,0.06)',
+          borderBottom: '1px solid rgba(255,255,255,0.04)',
         } : { backgroundColor: 'transparent' }}
       >
         <a href="/" style={{ display: 'flex', alignItems: 'center', gap: 10, textDecoration: 'none' }}>
-          <span style={{ fontWeight: 700, fontSize: 18, color: '#0D1017', letterSpacing: '-0.02em' }}>Agentcy®</span>
+          <span style={{ fontWeight: 700, fontSize: 18, color: '#fff', letterSpacing: '-0.02em' }}>Agentcy®</span>
         </a>
         <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-          <span style={{ fontSize: 11, letterSpacing: '0.15em', textTransform: 'uppercase', color: 'rgba(13,16,23,0.35)', fontWeight: 600 }}>Introducing</span>
+          <span style={{ fontSize: 11, letterSpacing: '0.15em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.35)', fontWeight: 600 }}>Introducing</span>
           <span style={{ fontSize: 18, fontWeight: 800, color: '#3AAFA9', letterSpacing: '-0.02em' }}>Romy</span>
         </div>
         <motion.a
@@ -155,18 +122,26 @@ export default function Romy() {
         </motion.a>
       </motion.nav>
 
-      {/* ━━ HERO (dark) ━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
+      {/* ━━ HERO — Unicorn Scene ━━━━━━━━━━━━━━━━━ */}
       <section style={{
         position: 'relative', minHeight: '100vh',
         display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
-        overflow: 'hidden', background: '#0D1017',
+        overflow: 'hidden',
       }}>
-        {/* BG */}
+        {/* Unicorn scene background */}
         <div style={{ position: 'absolute', inset: 0, zIndex: 0 }}>
-          <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(ellipse at 50% 30%, rgba(58,175,169,0.08) 0%, transparent 70%)' }} />
-          <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(ellipse at 30% 70%, rgba(58,175,169,0.04) 0%, transparent 60%)' }} />
+          <UnicornScene
+            projectId="G0JsZNbiuJ6601TFJq7N"
+            width="100%"
+            height="100%"
+            scale={1}
+            dpi={1.5}
+            sdkUrl="https://cdn.jsdelivr.net/gh/hiunicornstudio/unicornstudio.js@2.1.6/dist/unicornStudio.umd.js"
+          />
         </div>
-        <ParticleField />
+
+        {/* Dark overlay for text readability */}
+        <div style={{ position: 'absolute', inset: 0, zIndex: 1, background: 'rgba(0,0,0,0.3)', pointerEvents: 'none' }} />
 
         {/* Content */}
         <div style={{ position: 'relative', zIndex: 10, textAlign: 'center', padding: '0 24px', maxWidth: 800, margin: '0 auto' }}>
@@ -177,14 +152,15 @@ export default function Romy() {
               display: 'inline-flex', alignItems: 'center', gap: 8,
               padding: '8px 18px', borderRadius: 100,
               fontSize: 11, fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase',
-              background: 'rgba(58,175,169,0.1)', color: '#3AAFA9',
-              border: '1px solid rgba(58,175,169,0.15)',
+              background: 'rgba(58,175,169,0.15)', color: '#3AAFA9',
+              border: '1px solid rgba(58,175,169,0.2)',
+              backdropFilter: 'blur(12px)',
             }}>
               <Bot size={13} /> Agent Orchestrator
             </span>
           </motion.div>
 
-          {/* Name — image masked */}
+          {/* Name */}
           <motion.div
             initial={{ opacity: 0, y: 60, filter: 'blur(12px)' }}
             animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
@@ -202,7 +178,7 @@ export default function Romy() {
             />
           </motion.div>
 
-          {/* Tagline — stronger */}
+          {/* Tagline */}
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -212,6 +188,7 @@ export default function Romy() {
               color: '#fff', maxWidth: 600, margin: '0 auto 12px',
               fontWeight: 600, fontFamily: "'Space Grotesk', sans-serif",
               letterSpacing: '-0.02em',
+              textShadow: '0 2px 12px rgba(0,0,0,0.3)',
             }}
           >
             One brain. Five agents. Infinite capability.
@@ -224,12 +201,26 @@ export default function Romy() {
             transition={{ delay: 0.9, duration: 0.8 }}
             style={{
               fontSize: 'clamp(15px, 2vw, 17px)', lineHeight: 1.6,
-              color: 'rgba(255,255,255,0.4)', maxWidth: 520, margin: '0 auto 40px',
-              fontWeight: 300,
+              color: 'rgba(255,255,255,0.5)', maxWidth: 520, margin: '0 auto 40px',
+              fontWeight: 300, textShadow: '0 1px 8px rgba(0,0,0,0.3)',
             }}
           >
             Romy orchestrates specialist AI agents to deliver real work — research, code, analysis, writing — from a single conversation.
           </motion.p>
+
+          {/* Colloquial hook */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 1.0, duration: 0.8 }}
+            style={{
+              fontSize: 'clamp(14px, 2vw, 17px)', color: 'rgba(255,255,255,0.35)',
+              marginBottom: 48, fontStyle: 'italic',
+              textShadow: '0 1px 8px rgba(0,0,0,0.3)',
+            }}
+          >
+            "<TypingText text="Just Romy it." delay={1500} />"
+          </motion.div>
 
           {/* CTAs */}
           <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1.2 }} style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: 16 }}>
@@ -243,7 +234,6 @@ export default function Romy() {
                 background: '#3AAFA9', color: '#0D1017',
                 fontSize: 15, fontWeight: 700, textDecoration: 'none',
                 boxShadow: '0 8px 30px rgba(58,175,169,0.15)',
-                transition: 'box-shadow 0.3s',
               }}
             >
               Deploy Romy <ArrowRight size={16} />
@@ -251,9 +241,11 @@ export default function Romy() {
             <a href="#how" style={{
               display: 'inline-flex', alignItems: 'center', gap: 8,
               padding: '16px 32px', borderRadius: 100,
-              background: 'transparent', color: 'rgba(255,255,255,0.7)',
+              background: 'rgba(255,255,255,0.08)',
+              backdropFilter: 'blur(8px)',
+              color: '#fff',
               fontSize: 15, fontWeight: 500, textDecoration: 'none',
-              border: '1.5px solid rgba(255,255,255,0.15)',
+              border: '1px solid rgba(255,255,255,0.15)',
             }}>
               See how it works
             </a>
@@ -264,7 +256,7 @@ export default function Romy() {
         <motion.div
           animate={{ opacity: [0.2, 0.5, 0.2] }}
           transition={{ duration: 3, repeat: Infinity }}
-          style={{ position: 'absolute', bottom: 32, left: '50%', transform: 'translateX(-50%)', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 6 }}
+          style={{ position: 'absolute', bottom: 32, left: '50%', transform: 'translateX(-50%)', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 6, zIndex: 10 }}
         >
           <div style={{ width: 20, height: 32, borderRadius: 10, border: '1.5px solid rgba(255,255,255,0.15)', display: 'flex', justifyContent: 'center', paddingTop: 5 }}>
             <motion.div animate={{ y: [0, 6, 0] }} transition={{ duration: 1.5, repeat: Infinity }} style={{ width: 2.5, height: 7, borderRadius: 2, background: 'rgba(255,255,255,0.4)' }} />
@@ -272,11 +264,8 @@ export default function Romy() {
         </motion.div>
       </section>
 
-      {/* Gradient transition: dark → light */}
-      <div style={{ height: 120, background: 'linear-gradient(to bottom, #0D1017, #F5F5F3)' }} />
-
       {/* ━━ WHAT IS ROMY ━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
-      <section id="how" style={{ padding: '0 24px 120px', background: '#F5F5F3' }}>
+      <section id="how" style={{ padding: '120px 24px', background: '#F5F5F3' }}>
         <div style={{ maxWidth: 900, margin: '0 auto' }}>
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8, ease }} style={{ textAlign: 'center', marginBottom: 72 }}>
             <span style={{ display: 'block', fontSize: 11, fontWeight: 600, letterSpacing: '0.15em', textTransform: 'uppercase', color: 'rgba(13,16,23,0.3)', marginBottom: 16 }}>What is Romy?</span>
@@ -292,7 +281,6 @@ export default function Romy() {
             One conversation. Romy does the rest. No prompt engineering. No tool juggling.
           </motion.p>
 
-          {/* How it flows */}
           <div style={{ display: 'grid', gap: 20 }}>
             {[
               { step: '01', icon: MessageSquare, title: 'Tell Romy', desc: 'Describe what you need. Romy gets it.' },
@@ -332,8 +320,18 @@ export default function Romy() {
         </div>
       </section>
 
-      {/* ━━ AGENTS (Unicorn scene) ━━━━━━━━━━━━━━━━ */}
-      <ImageWheel />
+      {/* ━━ ROMY'S TEAM — TiltHalo ━━━━━━━━━━━━━━ */}
+      <section style={{ padding: '80px 0', background: '#F5F5F3', overflow: 'hidden' }}>
+        <div style={{ padding: '0 24px', marginBottom: 32 }}>
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} style={{ textAlign: 'center' }}>
+            <span style={{ display: 'block', fontSize: 11, fontWeight: 600, letterSpacing: '0.15em', textTransform: 'uppercase', color: 'rgba(13,16,23,0.3)', marginBottom: 16 }}>The Agents</span>
+            <h2 style={{ fontSize: 'clamp(28px, 5vw, 48px)', fontFamily: "'Space Grotesk', sans-serif", fontWeight: 800, letterSpacing: '-0.03em', lineHeight: 1.05, color: '#0D1017' }}>
+              Romy's <span style={{ color: '#3AAFA9' }}>team</span>
+            </h2>
+          </motion.div>
+        </div>
+        <TiltHalo />
+      </section>
 
       {/* ━━ CAPABILITIES ━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
       <section style={{ padding: '120px 24px', background: '#EAEAE8' }}>
@@ -399,7 +397,6 @@ export default function Romy() {
             Romy doesn't just answer questions. Romy <em style={{ color: 'rgba(13,16,23,0.6)' }}>does the work</em>.
           </motion.p>
 
-          {/* Usage examples */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
