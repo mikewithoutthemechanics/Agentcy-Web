@@ -3,6 +3,7 @@ import { ArrowRight, Bot, Zap, Brain, Layers, MessageSquare, Workflow, ChevronRi
 import { useEffect, useRef, useState } from 'react';
 import ImageMaskText from './ImageMaskText';
 import ImageWheel from './ImageWheel';
+import WorkflowNetwork from './WorkflowNetwork';
 
 const ease = [0.16, 1, 0.3, 1] as const;
 
@@ -326,6 +327,9 @@ export default function Romy() {
           </div>
         </div>
       </section>
+
+      {/* ━━ WORKFLOW NETWORK ━━━━━━━━━━━━━━━━━━━━━━ */}
+      <WorkflowNetwork />
 
       {/* ━━ AGENTS WHEEL ━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
       <ImageWheel />
