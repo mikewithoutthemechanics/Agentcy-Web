@@ -7,11 +7,11 @@ interface Agent {
 }
 
 const agents: Agent[] = [
-  { name: 'Romy', image: 'https://images.unsplash.com/photo-1531746790731-6c087fecd65a?w=300&h=300&fit=crop&crop=face' },
-  { name: 'Atlas', image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=300&h=300&fit=crop&crop=face' },
-  { name: 'Flux', image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=300&h=300&fit=crop&crop=face' },
-  { name: 'Nova', image: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=300&h=300&fit=crop&crop=face' },
-  { name: 'Sage', image: 'https://images.unsplash.com/photo-1455390582262-044cdead277a?w=300&h=300&fit=crop&crop=face' },
+  { name: 'Romy', image: 'https://api.dicebear.com/7.x/bottts-neutral/svg?seed=Romy&backgroundColor=c0aede' },
+  { name: 'Atlas', image: 'https://api.dicebear.com/7.x/bottts-neutral/svg?seed=Atlas&backgroundColor=b6e3f4' },
+  { name: 'Flux', image: 'https://api.dicebear.com/7.x/bottts-neutral/svg?seed=Flux&backgroundColor=ffd5dc' },
+  { name: 'Nova', image: 'https://api.dicebear.com/7.x/bottts-neutral/svg?seed=Nova&backgroundColor=d1d4f9' },
+  { name: 'Sage', image: 'https://api.dicebear.com/7.x/bottts-neutral/svg?seed=Sage&backgroundColor=c0aede' },
   { name: 'Ryan Paul', image: '/ryan-paul.jpg' },
 ];
 
