@@ -81,8 +81,8 @@ function CapabilityCard({ icon: Icon, title, desc, index }: { icon: any; title: 
       whileHover={{ y: -6, boxShadow: '0 0 40px rgba(58,175,169,0.08)' }}
       style={{
         padding: 28, borderRadius: 16,
-        background: 'rgba(255,255,255,0.02)',
-        border: '1px solid rgba(255,255,255,0.06)',
+        background: '#fff',
+        border: '1px solid rgba(13,16,23,0.06)',
         cursor: 'default',
         transition: 'border-color 0.3s',
       }}
@@ -94,8 +94,8 @@ function CapabilityCard({ icon: Icon, title, desc, index }: { icon: any; title: 
       }}>
         <Icon size={20} color="#3AAFA9" />
       </div>
-      <h3 style={{ fontSize: 17, fontWeight: 700, color: '#fff', marginBottom: 8 }}>{title}</h3>
-      <p style={{ fontSize: 13, lineHeight: 1.6, color: 'rgba(255,255,255,0.5)' }}>{desc}</p>
+      <h3 style={{ fontSize: 17, fontWeight: 700, color: '#0D1017', marginBottom: 8 }}>{title}</h3>
+      <p style={{ fontSize: 13, lineHeight: 1.6, color: 'rgba(13,16,23,0.5)' }}>{desc}</p>
     </motion.div>
   );
 }
@@ -117,7 +117,7 @@ export default function Romy() {
   }, []);
 
   return (
-    <div style={{ background: '#F5F5F3', minHeight: '100vh' }}>
+    <div style={{ minHeight: '100vh' }}>
 
       {/* ━━ NAV ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
       <motion.nav
@@ -126,16 +126,16 @@ export default function Romy() {
         transition={{ duration: 0.6, ease }}
         className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 md:px-10 py-6 max-w-7xl mx-auto"
         style={scrolled ? {
-          backgroundColor: 'rgba(10,10,15,0.9)',
+          backgroundColor: 'rgba(245,245,243,0.92)',
           backdropFilter: 'blur(20px)',
-          borderBottom: '1px solid rgba(255,255,255,0.04)',
+          borderBottom: '1px solid rgba(13,16,23,0.06)',
         } : { backgroundColor: 'transparent' }}
       >
         <a href="/" style={{ display: 'flex', alignItems: 'center', gap: 10, textDecoration: 'none' }}>
-          <span style={{ fontWeight: 700, fontSize: 18, color: '#fff', letterSpacing: '-0.02em' }}>Agentcy®</span>
+          <span style={{ fontWeight: 700, fontSize: 18, color: '#0D1017', letterSpacing: '-0.02em' }}>Agentcy®</span>
         </a>
         <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-          <span style={{ fontSize: 11, letterSpacing: '0.15em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.3)', fontWeight: 600 }}>Introducing</span>
+          <span style={{ fontSize: 11, letterSpacing: '0.15em', textTransform: 'uppercase', color: 'rgba(13,16,23,0.35)', fontWeight: 600 }}>Introducing</span>
           <span style={{ fontSize: 18, fontWeight: 800, color: '#3AAFA9', letterSpacing: '-0.02em' }}>Romy</span>
         </div>
         <motion.a
@@ -153,16 +153,16 @@ export default function Romy() {
         </motion.a>
       </motion.nav>
 
-      {/* ━━ HERO ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
+      {/* ━━ HERO (dark) ━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
       <section style={{
         position: 'relative', minHeight: '100vh',
         display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
-        overflow: 'hidden',
+        overflow: 'hidden', background: '#0D1017',
       }}>
         {/* BG */}
         <div style={{ position: 'absolute', inset: 0, zIndex: 0 }}>
-          <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(ellipse at 50% 30%, rgba(58,175,169,0.06) 0%, transparent 70%)' }} />
-          <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(ellipse at 30% 70%, rgba(58,175,169,0.03) 0%, transparent 60%)' }} />
+          <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(ellipse at 50% 30%, rgba(58,175,169,0.08) 0%, transparent 70%)' }} />
+          <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(ellipse at 30% 70%, rgba(58,175,169,0.04) 0%, transparent 60%)' }} />
         </div>
         <ParticleField />
 
@@ -175,8 +175,8 @@ export default function Romy() {
               display: 'inline-flex', alignItems: 'center', gap: 8,
               padding: '8px 18px', borderRadius: 100,
               fontSize: 11, fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase',
-              background: 'rgba(58,175,169,0.06)', color: '#3AAFA9',
-              border: '1px solid rgba(58,175,169,0.12)',
+              background: 'rgba(58,175,169,0.1)', color: '#3AAFA9',
+              border: '1px solid rgba(58,175,169,0.15)',
             }}>
               <Bot size={13} /> Agent Orchestrator
             </span>
@@ -268,18 +268,18 @@ export default function Romy() {
       </section>
 
       {/* ━━ WHAT IS ROMY ━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
-      <section id="how" style={{ padding: '120px 24px', background: '#EAEAE8' }}>
+      <section id="how" style={{ padding: '120px 24px', background: '#F5F5F3' }}>
         <div style={{ maxWidth: 900, margin: '0 auto' }}>
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8, ease }} style={{ textAlign: 'center', marginBottom: 72 }}>
-            <span style={{ display: 'block', fontSize: 11, fontWeight: 600, letterSpacing: '0.15em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.25)', marginBottom: 16 }}>What is Romy?</span>
-            <h2 style={{ fontSize: 'clamp(32px, 5vw, 52px)', fontFamily: "'Space Grotesk', sans-serif", fontWeight: 800, letterSpacing: '-0.03em', lineHeight: 1.05, color: '#fff' }}>
+            <span style={{ display: 'block', fontSize: 11, fontWeight: 600, letterSpacing: '0.15em', textTransform: 'uppercase', color: 'rgba(13,16,23,0.3)', marginBottom: 16 }}>What is Romy?</span>
+            <h2 style={{ fontSize: 'clamp(32px, 5vw, 52px)', fontFamily: "'Space Grotesk', sans-serif", fontWeight: 800, letterSpacing: '-0.03em', lineHeight: 1.05, color: '#0D1017' }}>
               One agent to <span style={{ color: '#3AAFA9' }}>orchestrate</span> them all.
             </h2>
           </motion.div>
 
           <motion.p
             initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-            style={{ fontSize: 17, lineHeight: 1.8, color: 'rgba(255,255,255,0.45)', textAlign: 'center', maxWidth: 640, margin: '0 auto 64px' }}
+            style={{ fontSize: 17, lineHeight: 1.8, color: 'rgba(13,16,23,0.5)', textAlign: 'center', maxWidth: 640, margin: '0 auto 64px' }}
           >
             Romy is your lead orchestration agent — the single point of contact that understands your business, delegates to specialist agents, and delivers results. No prompt engineering. No tool juggling. Just describe what you need.
           </motion.p>
@@ -300,23 +300,23 @@ export default function Romy() {
                 transition={{ delay: i * 0.12, duration: 0.6, ease }}
                 style={{
                   display: 'flex', gap: 24, padding: 28, borderRadius: 16,
-                  background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.04)',
+                  background: '#fff', border: '1px solid rgba(13,16,23,0.06)',
                   alignItems: 'flex-start',
                 }}
               >
                 <div style={{
                   width: 48, height: 48, borderRadius: 12, flexShrink: 0,
                   display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  background: 'rgba(58,175,169,0.06)',
+                  background: 'rgba(58,175,169,0.08)',
                 }}>
                   <s.icon size={20} color="#3AAFA9" />
                 </div>
                 <div>
                   <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 6 }}>
-                    <span style={{ fontSize: 11, fontWeight: 700, color: 'rgba(58,175,169,0.4)', letterSpacing: '0.05em' }}>{s.step}</span>
-                    <h3 style={{ fontSize: 16, fontWeight: 700, color: '#fff' }}>{s.title}</h3>
+                    <span style={{ fontSize: 11, fontWeight: 700, color: 'rgba(58,175,169,0.5)', letterSpacing: '0.05em' }}>{s.step}</span>
+                    <h3 style={{ fontSize: 16, fontWeight: 700, color: '#0D1017' }}>{s.title}</h3>
                   </div>
-                  <p style={{ fontSize: 14, lineHeight: 1.6, color: 'rgba(255,255,255,0.4)' }}>{s.desc}</p>
+                  <p style={{ fontSize: 14, lineHeight: 1.6, color: 'rgba(13,16,23,0.5)' }}>{s.desc}</p>
                 </div>
               </motion.div>
             ))}
@@ -325,11 +325,11 @@ export default function Romy() {
       </section>
 
       {/* ━━ CAPABILITIES ━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
-      <section style={{ padding: '120px 24px', background: '#F5F5F3' }}>
+      <section style={{ padding: '120px 24px', background: '#EAEAE8' }}>
         <div style={{ maxWidth: 1100, margin: '0 auto' }}>
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} style={{ textAlign: 'center', marginBottom: 64 }}>
-            <span style={{ display: 'block', fontSize: 11, fontWeight: 600, letterSpacing: '0.15em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.25)', marginBottom: 16 }}>Capabilities</span>
-            <h2 style={{ fontSize: 'clamp(32px, 5vw, 52px)', fontFamily: "'Space Grotesk', sans-serif", fontWeight: 800, letterSpacing: '-0.03em', lineHeight: 1.05, color: '#fff' }}>
+            <span style={{ display: 'block', fontSize: 11, fontWeight: 600, letterSpacing: '0.15em', textTransform: 'uppercase', color: 'rgba(13,16,23,0.3)', marginBottom: 16 }}>Capabilities</span>
+            <h2 style={{ fontSize: 'clamp(32px, 5vw, 52px)', fontFamily: "'Space Grotesk', sans-serif", fontWeight: 800, letterSpacing: '-0.03em', lineHeight: 1.05, color: '#0D1017' }}>
               What Romy can <span style={{ color: '#3AAFA9' }}>do</span>
             </h2>
           </motion.div>
@@ -352,14 +352,14 @@ export default function Romy() {
       {/* ━━ THE VERB ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
       <section style={{
         padding: '120px 24px',
-        background: 'linear-gradient(180deg, #EAEAE8 0%, #F5F5F3 100%)',
+        background: '#F5F5F3',
         position: 'relative', overflow: 'hidden',
       }}>
-        <div style={{ position: 'absolute', top: '20%', left: '50%', transform: 'translateX(-50%)', width: 600, height: 600, borderRadius: '50%', background: 'radial-gradient(circle, rgba(58,175,169,0.03) 0%, transparent 70%)', pointerEvents: 'none' }} />
+        <div style={{ position: 'absolute', top: '20%', left: '50%', transform: 'translateX(-50%)', width: 600, height: 600, borderRadius: '50%', background: 'radial-gradient(circle, rgba(58,175,169,0.04) 0%, transparent 70%)', pointerEvents: 'none' }} />
 
         <div style={{ maxWidth: 800, margin: '0 auto', textAlign: 'center', position: 'relative', zIndex: 1 }}>
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-            <span style={{ display: 'block', fontSize: 11, fontWeight: 600, letterSpacing: '0.15em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.25)', marginBottom: 24 }}>The new verb</span>
+            <span style={{ display: 'block', fontSize: 11, fontWeight: 600, letterSpacing: '0.15em', textTransform: 'uppercase', color: 'rgba(13,16,23,0.3)', marginBottom: 24 }}>The new verb</span>
           </motion.div>
 
           <motion.h2
@@ -371,7 +371,7 @@ export default function Romy() {
               fontSize: 'clamp(40px, 8vw, 80px)',
               fontFamily: "'Space Grotesk', sans-serif",
               fontWeight: 900, letterSpacing: '-0.04em', lineHeight: 1,
-              color: '#fff', marginBottom: 32,
+              color: '#0D1017', marginBottom: 32,
             }}
           >
             Just <span style={{ color: '#C8A84E', fontStyle: 'italic' }}>Romy</span> it.
@@ -382,10 +382,10 @@ export default function Romy() {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.3 }}
-            style={{ fontSize: 17, lineHeight: 1.7, color: 'rgba(255,255,255,0.35)', maxWidth: 500, margin: '0 auto 48px' }}
+            style={{ fontSize: 17, lineHeight: 1.7, color: 'rgba(13,16,23,0.45)', maxWidth: 500, margin: '0 auto 48px' }}
           >
             Like "Google it" or "ask ChatGPT" — but for getting real work done. <br />
-            Romy doesn't just answer questions. Romy <em style={{ color: 'rgba(255,255,255,0.5)' }}>does the work</em>.
+            Romy doesn't just answer questions. Romy <em style={{ color: 'rgba(13,16,23,0.6)' }}>does the work</em>.
           </motion.p>
 
           {/* Usage examples */}
@@ -409,8 +409,8 @@ export default function Romy() {
                 transition={{ delay: 0.6 + i * 0.15 }}
                 style={{
                   padding: '16px 20px', borderRadius: 12,
-                  background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.04)',
-                  fontSize: 14, color: 'rgba(255,255,255,0.4)', textAlign: 'left',
+                  background: '#fff', border: '1px solid rgba(13,16,23,0.06)',
+                  fontSize: 14, color: 'rgba(13,16,23,0.5)', textAlign: 'left',
                   fontStyle: 'italic',
                 }}
               >
@@ -424,10 +424,10 @@ export default function Romy() {
       {/* ━━ CTA ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
       <section style={{
         padding: '120px 24px',
-        background: 'linear-gradient(180deg, #F5F5F3 0%, #EAEAE8 100%)',
+        background: '#EAEAE8',
         position: 'relative', overflow: 'hidden',
       }}>
-        <div style={{ position: 'absolute', bottom: '-30%', right: '-10%', width: 400, height: 400, borderRadius: '50%', background: 'radial-gradient(circle, rgba(58,175,169,0.04) 0%, transparent 70%)', pointerEvents: 'none' }} />
+        <div style={{ position: 'absolute', bottom: '-30%', right: '-10%', width: 400, height: 400, borderRadius: '50%', background: 'radial-gradient(circle, rgba(58,175,169,0.05) 0%, transparent 70%)', pointerEvents: 'none' }} />
 
         <div style={{ maxWidth: 600, margin: '0 auto', textAlign: 'center', position: 'relative', zIndex: 1 }}>
           <motion.h2
@@ -437,7 +437,7 @@ export default function Romy() {
             style={{
               fontSize: 'clamp(32px, 5vw, 48px)',
               fontFamily: "'Space Grotesk', sans-serif",
-              fontWeight: 800, letterSpacing: '-0.03em', color: '#fff', marginBottom: 20,
+              fontWeight: 800, letterSpacing: '-0.03em', color: '#0D1017', marginBottom: 20,
             }}
           >
             Ready to meet <span style={{ color: '#3AAFA9' }}>Romy</span>?
@@ -446,7 +446,7 @@ export default function Romy() {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            style={{ fontSize: 16, color: 'rgba(255,255,255,0.35)', marginBottom: 40 }}
+            style={{ fontSize: 16, color: 'rgba(13,16,23,0.45)', marginBottom: 40 }}
           >
             Start with one task. See what Romy can do.
           </motion.p>
