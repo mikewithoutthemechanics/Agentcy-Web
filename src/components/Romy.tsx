@@ -161,22 +161,23 @@ export default function Romy() {
           </motion.div>
 
           {/* Name */}
-          <motion.div
+          <motion.h1
             initial={{ opacity: 0, y: 60, filter: 'blur(12px)' }}
             animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
             transition={{ delay: 0.3, duration: 1.2, ease }}
-            style={{ marginBottom: 32 }}
+            style={{
+              fontSize: 'clamp(72px, 15vw, 160px)',
+              lineHeight: 0.85,
+              letterSpacing: '-0.05em',
+              fontFamily: "'Space Grotesk', 'Inter', sans-serif",
+              fontWeight: 900,
+              color: '#fff',
+              marginBottom: 32,
+              textShadow: '0 2px 40px rgba(0,0,0,0.3)',
+            }}
           >
-            <ImageMaskText
-              text="ROMY"
-              imageSrc="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=1200&q=80"
-              fontSize={160}
-              fontWeight={900}
-              letterSpacing="-0.05em"
-              lineHeight="0.85"
-              imageFit="cover"
-            />
-          </motion.div>
+            Romy
+          </motion.h1>
 
           {/* Tagline */}
           <motion.p
