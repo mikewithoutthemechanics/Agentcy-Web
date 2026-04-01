@@ -134,6 +134,9 @@ export default function Romy() {
         </div>
       </section>
 
+      {/* Gradient transition from dark hero to light sections */}
+      <div style={{ height: 160, background: 'linear-gradient(to bottom, rgba(0,0,0,0.4) 0%, #F5F5F3 100%)', position: 'relative', zIndex: 2 }} />
+
       {/* ━━ SOCIAL PROOF BAR ━━━━━━━━━━━━━━━━━━━━ */}
       <section style={{ padding: '48px 24px', background: '#0D1017', borderBottom: '1px solid rgba(255,255,255,0.04)' }}>
         <div style={{ maxWidth: 900, margin: '0 auto', display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '32px 48px' }}>
@@ -316,12 +319,12 @@ export default function Romy() {
           </motion.div>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: 20 }}>
             {[
-              { icon: Brain, title: 'Research & Analysis', desc: 'Deep research across documents, web, and internal data. Synthesizes findings into actionable insights.' },
-              { icon: Layers, title: 'Multi-Agent Workflows', desc: 'Orchestrates specialist agents in parallel or sequence. Handles complex multi-step tasks autonomously.' },
-              { icon: MessageSquare, title: 'Natural Conversation', desc: 'Talk to Romy like you would a colleague. No templates, no rigid commands — just describe what you need.' },
-              { icon: Workflow, title: 'Process Automation', desc: 'Maps your existing workflows and automates the repetitive parts. Learns your preferences over time.' },
-              { icon: Bot, title: 'Agent Delegation', desc: 'Routes tasks to the right specialist — code, design, analysis, writing — and ensures quality at each step.' },
-              { icon: Zap, title: 'Instant Execution', desc: 'No waiting for meetings or handoffs. Romy starts working the moment you describe the task.' },
+              { icon: Brain, title: '5 Specialist Agents', desc: 'Not one generic model. Five focused experts — research, code, data, writing, design — each best at what they do.' },
+              { icon: Layers, title: 'Works Together', desc: 'Agents collaborate in parallel. Atlas researches while Sage writes. You get results in minutes, not hours.' },
+              { icon: MessageSquare, title: 'No Setup Required', desc: 'Just describe what you need in plain language. No templates, no workflows to configure, no training.' },
+              { icon: Workflow, title: 'Plugs Into Your Tools', desc: 'Gmail, Slack, Notion, Sheets — Romy works where you already work. No migration, no new platforms.' },
+              { icon: Bot, title: 'Quality Built In', desc: 'Every output passes through QA. Agents check each other\'s work before you see it.' },
+              { icon: Zap, title: 'Minutes, Not Days', desc: 'A board report in 20 minutes. A competitor analysis before your coffee. Real work, done fast.' },
             ].map((cap, i) => (
               <CapabilityCard key={cap.title} icon={cap.icon} title={cap.title} desc={cap.desc} index={i} />
             ))}
