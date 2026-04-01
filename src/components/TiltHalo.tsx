@@ -12,6 +12,7 @@ const agents: Agent[] = [
   { name: 'Flux', image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=300&h=300&fit=crop&crop=face' },
   { name: 'Nova', image: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=300&h=300&fit=crop&crop=face' },
   { name: 'Sage', image: 'https://images.unsplash.com/photo-1455390582262-044cdead277a?w=300&h=300&fit=crop&crop=face' },
+  { name: 'Ryan Paul', image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=300&fit=crop&crop=face' },
 ];
 
 export default function TiltHalo({ images, style }: { images?: Agent[]; style?: React.CSSProperties }) {

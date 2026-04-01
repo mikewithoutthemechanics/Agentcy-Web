@@ -192,7 +192,7 @@ export default function Romy() {
               textShadow: '0 2px 12px rgba(0,0,0,0.3)',
             }}
           >
-            One brain. Five agents. Infinite capability.
+            One brain. Six agents. Infinite capability.
           </motion.p>
 
           {/* Sub-tagline */}
