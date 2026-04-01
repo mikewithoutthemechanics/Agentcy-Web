@@ -4,11 +4,11 @@ import { BarChart3, Code2, Globe, Cpu, ShoppingCart, Wallet, Truck, Bot } from '
 
 // ── Client logo SVGs (as img tags) ──────────────────
 const logos = [
-  <img key="logo-1" src="/logos/logo-1.svg" alt="Logo" style={{ width: '70%', height: 'auto', display: 'block', opacity: 0.9 }} />,
-  <img key="logo-2" src="/logos/logo-2.svg" alt="Logo" style={{ width: '60%', height: 'auto', display: 'block', opacity: 0.9 }} />,
-  <img key="logo-3" src="/logos/logo-3.svg" alt="Logo" style={{ width: '55%', height: 'auto', display: 'block', opacity: 0.9 }} />,
-  <img key="logo-4" src="/logos/logo-4.svg" alt="Logo" style={{ width: '65%', height: 'auto', display: 'block', opacity: 0.9 }} />,
-  <img key="logo-5" src="/logos/logo-5.svg" alt="Logo" style={{ width: '70%', height: 'auto', display: 'block', opacity: 0.9 }} />,
+  <img key="logo-1" src="/logos/logo-1.svg" alt="Logo" style={{ width: '70%', height: '50%', objectFit: 'contain', display: 'block', opacity: 0.9 }} />,
+  <img key="logo-2" src="/logos/logo-2.svg" alt="Logo" style={{ width: '60%', height: '50%', objectFit: 'contain', display: 'block', opacity: 0.9 }} />,
+  <img key="logo-3" src="/logos/logo-3.svg" alt="Logo" style={{ width: '55%', height: '50%', objectFit: 'contain', display: 'block', opacity: 0.9 }} />,
+  <img key="logo-4" src="/logos/logo-4.svg" alt="Logo" style={{ width: '65%', height: '50%', objectFit: 'contain', display: 'block', opacity: 0.9 }} />,
+  <img key="logo-5" src="/logos/logo-5.svg" alt="Logo" style={{ width: '70%', height: '50%', objectFit: 'contain', display: 'block', opacity: 0.9 }} />,
   // Keep abstract SVGs for remaining slots
   <svg key="hex" width="50" height="50" viewBox="0 0 60 60" fill="none"><path d="M30 4L54 17V43L30 56L6 43V17L30 4Z" fill="rgba(255,255,255,0.12)" stroke="rgba(255,255,255,0.5)" strokeWidth="1.5"/><circle cx="30" cy="30" r="12" fill="none" stroke="rgba(255,255,255,0.4)" strokeWidth="1.5"/></svg>,
   <svg key="arrow" width="50" height="50" viewBox="0 0 60 60" fill="none"><circle cx="30" cy="30" r="24" fill="rgba(255,255,255,0.1)" stroke="rgba(255,255,255,0.5)" strokeWidth="1.5"/><path d="M20 30L40 30M40 30L32 22M40 30L32 38" stroke="rgba(255,255,255,0.6)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>,
