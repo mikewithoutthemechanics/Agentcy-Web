@@ -1,9 +1,8 @@
 import { motion } from 'motion/react';
 import { ArrowRight, Bot, Zap, Brain, Layers, MessageSquare, Workflow, ChevronRight } from 'lucide-react';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import ImageMaskText from './ImageMaskText';
 import ImageWheel from './ImageWheel';
-import WorkflowNetwork from './WorkflowNetwork';
 
 const ease = [0.16, 1, 0.3, 1] as const;
 
@@ -203,32 +202,34 @@ export default function Romy() {
             />
           </motion.div>
 
-          {/* Tagline */}
+          {/* Tagline — stronger */}
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.7, duration: 0.8 }}
             style={{
-              fontSize: 'clamp(18px, 3vw, 24px)', lineHeight: 1.5,
-              color: 'rgba(255,255,255,0.6)', maxWidth: 560, margin: '0 auto 20px',
+              fontSize: 'clamp(20px, 3vw, 28px)', lineHeight: 1.4,
+              color: '#fff', maxWidth: 600, margin: '0 auto 12px',
+              fontWeight: 600, fontFamily: "'Space Grotesk', sans-serif",
+              letterSpacing: '-0.02em',
+            }}
+          >
+            One brain. Five agents. Infinite capability.
+          </motion.p>
+
+          {/* Sub-tagline */}
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.9, duration: 0.8 }}
+            style={{
+              fontSize: 'clamp(15px, 2vw, 17px)', lineHeight: 1.6,
+              color: 'rgba(255,255,255,0.4)', maxWidth: 520, margin: '0 auto 40px',
               fontWeight: 300,
             }}
           >
-            Your AI agent orchestrator.
+            Romy orchestrates specialist AI agents to deliver real work — research, code, analysis, writing — from a single conversation.
           </motion.p>
-
-          {/* Colloquial hook */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1.0, duration: 0.8 }}
-            style={{
-              fontSize: 'clamp(14px, 2vw, 17px)', color: 'rgba(255,255,255,0.35)',
-              marginBottom: 48, fontStyle: 'italic',
-            }}
-          >
-            "<TypingText text="Just Romy it." delay={1500} />"
-          </motion.div>
 
           {/* CTAs */}
           <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1.2 }} style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: 16 }}>
@@ -271,8 +272,11 @@ export default function Romy() {
         </motion.div>
       </section>
 
+      {/* Gradient transition: dark → light */}
+      <div style={{ height: 120, background: 'linear-gradient(to bottom, #0D1017, #F5F5F3)' }} />
+
       {/* ━━ WHAT IS ROMY ━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
-      <section id="how" style={{ padding: '120px 24px', background: '#F5F5F3' }}>
+      <section id="how" style={{ padding: '0 24px 120px', background: '#F5F5F3' }}>
         <div style={{ maxWidth: 900, margin: '0 auto' }}>
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8, ease }} style={{ textAlign: 'center', marginBottom: 72 }}>
             <span style={{ display: 'block', fontSize: 11, fontWeight: 600, letterSpacing: '0.15em', textTransform: 'uppercase', color: 'rgba(13,16,23,0.3)', marginBottom: 16 }}>What is Romy?</span>
@@ -283,44 +287,44 @@ export default function Romy() {
 
           <motion.p
             initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-            style={{ fontSize: 17, lineHeight: 1.8, color: 'rgba(13,16,23,0.5)', textAlign: 'center', maxWidth: 640, margin: '0 auto 64px' }}
+            style={{ fontSize: 16, lineHeight: 1.8, color: 'rgba(13,16,23,0.5)', textAlign: 'center', maxWidth: 580, margin: '0 auto 64px' }}
           >
-            Romy is your lead orchestration agent — the single point of contact that understands your business, delegates to specialist agents, and delivers results. No prompt engineering. No tool juggling. Just describe what you need.
+            One conversation. Romy does the rest. No prompt engineering. No tool juggling.
           </motion.p>
 
           {/* How it flows */}
-          <div style={{ display: 'grid', gap: 24 }}>
+          <div style={{ display: 'grid', gap: 20 }}>
             {[
-              { step: '01', icon: MessageSquare, title: 'Tell Romy', desc: 'Describe your problem in plain language. Romy understands context, nuance, and business logic.' },
-              { step: '02', icon: Brain, title: 'Romy Plans', desc: 'Breaks your request into tasks. Identifies which specialist agents, tools, and data sources are needed.' },
-              { step: '03', icon: Workflow, title: 'Romy Orchestrates', desc: 'Delegates to the right agents in the right order. Manages dependencies, retries, and quality checks.' },
-              { step: '04', icon: Zap, title: 'Romy Delivers', desc: 'Aggregates results, runs QA, and delivers polished output. You approve or request changes — Romy handles the rest.' },
+              { step: '01', icon: MessageSquare, title: 'Tell Romy', desc: 'Describe what you need. Romy gets it.' },
+              { step: '02', icon: Brain, title: 'Romy Plans', desc: 'Picks the right agents, tools, and approach.' },
+              { step: '03', icon: Workflow, title: 'Romy Works', desc: 'Delegates, builds, and checks quality along the way.' },
+              { step: '04', icon: Zap, title: 'You Review', desc: 'Polished output, ready to ship. Request changes or approve.' },
             ].map((s, i) => (
               <motion.div
                 key={s.step}
                 initial={{ opacity: 0, x: i % 2 === 0 ? -30 : 30 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: i * 0.12, duration: 0.6, ease }}
+                transition={{ delay: i * 0.1, duration: 0.5, ease }}
                 style={{
-                  display: 'flex', gap: 24, padding: 28, borderRadius: 16,
+                  display: 'flex', gap: 20, padding: 24, borderRadius: 16,
                   background: '#fff', border: '1px solid rgba(13,16,23,0.06)',
-                  alignItems: 'flex-start',
+                  alignItems: 'center',
                 }}
               >
                 <div style={{
-                  width: 48, height: 48, borderRadius: 12, flexShrink: 0,
+                  width: 44, height: 44, borderRadius: 12, flexShrink: 0,
                   display: 'flex', alignItems: 'center', justifyContent: 'center',
                   background: 'rgba(58,175,169,0.08)',
                 }}>
-                  <s.icon size={20} color="#3AAFA9" />
+                  <s.icon size={18} color="#3AAFA9" />
                 </div>
-                <div>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 6 }}>
-                    <span style={{ fontSize: 11, fontWeight: 700, color: 'rgba(58,175,169,0.5)', letterSpacing: '0.05em' }}>{s.step}</span>
-                    <h3 style={{ fontSize: 16, fontWeight: 700, color: '#0D1017' }}>{s.title}</h3>
+                <div style={{ flex: 1 }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 4 }}>
+                    <span style={{ fontSize: 10, fontWeight: 700, color: 'rgba(58,175,169,0.5)', letterSpacing: '0.05em' }}>{s.step}</span>
+                    <h3 style={{ fontSize: 15, fontWeight: 700, color: '#0D1017' }}>{s.title}</h3>
                   </div>
-                  <p style={{ fontSize: 14, lineHeight: 1.6, color: 'rgba(13,16,23,0.5)' }}>{s.desc}</p>
+                  <p style={{ fontSize: 13, lineHeight: 1.5, color: 'rgba(13,16,23,0.45)' }}>{s.desc}</p>
                 </div>
               </motion.div>
             ))}
@@ -328,10 +332,7 @@ export default function Romy() {
         </div>
       </section>
 
-      {/* ━━ WORKFLOW NETWORK ━━━━━━━━━━━━━━━━━━━━━━ */}
-      <WorkflowNetwork />
-
-      {/* ━━ AGENTS WHEEL ━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
+      {/* ━━ AGENTS (Unicorn scene) ━━━━━━━━━━━━━━━━ */}
       <ImageWheel />
 
       {/* ━━ CAPABILITIES ━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
