@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from 'motion/react';
-import { ArrowLeft, ExternalLink, Layers } from 'lucide-react';
+import { ArrowLeft, ExternalLink, Layers, Brain, Sparkles, Wrench, GitBranch, Terminal, Layout, Network } from 'lucide-react';
 
 interface Project {
   id: string;
@@ -63,6 +63,62 @@ const projects: Project[] = [
     tech: ['React', 'WebSockets', 'TimescaleDB', 'Redis'],
     images: [],
   },
+  // ── New service offerings ──
+  {
+    id: 'knowledge-base', name: 'Knowledge Base', logo: 'K', color: '#2563EB',
+    tagline: 'Structured knowledge for your team',
+    overview: 'We design and deploy intelligent knowledge bases — powered by your own docs, SOPs, and data — so your team finds answers instantly instead of digging through folders. Semantic search, version control, and access controls included.',
+    tech: ['FastAPI', 'PostgreSQL', 'pgvector', 'Next.js'], images: [],
+  },
+  {
+    id: 'ai-assistants', name: 'AI Assistants', logo: 'A', color: '#8B5CF6',
+    tagline: 'Personal and professional AI assistants built around you',
+    overview: 'Not a generic chatbot. We build AI assistants fine-tuned to your role, your data, and your workflows — with persistent memory, tool use, and seamless handoff to live humans when needed.',
+    tech: ['Groq', 'Llama 3', 'LangChain', 'RAG'], images: [],
+  },
+  {
+    id: 'custom-tools', name: 'Custom Tools', logo: 'T', color: '#D97706',
+    tagline: 'Purpose-built utilities that do exactly what you need',
+    overview: 'When off-the-shelf software doesn\'t fit, we build the tool that does. Internal dashboards, data transformers, approval bots, reconciliation scripts — any utility your team needs, built and deployed.',
+    tech: ['TypeScript', 'Python', 'Docker', 'Supabase'], images: [],
+  },
+  {
+    id: 'custom-workflows', name: 'Custom Workflows', logo: 'W', color: '#059669',
+    tagline: 'Automated multi-step pipelines that run themselves',
+    overview: 'Connect your tools end-to-end. New lead → CRM → Slack → invoice → payment reminder. Every step timed, triggered, and error-handled. Set once, runs forever.',
+    tech: ['n8n', 'Zapier', 'FastAPI', 'WebSockets'], images: [],
+  },
+  {
+    id: 'custom-skills', name: 'Custom Skills', logo: 'S', color: '#7C3AED',
+    tagline: 'Specialised AI capabilities tailored to your domain',
+    overview: 'Extend your AI agents with custom skills — financial analysis, code review, content moderation, compliance checking. Each skill is a self-contained module your agent calls on demand.',
+    tech: ['Python', 'OpenAI / Groq', 'LangChain', 'Docker'], images: [],
+  },
+  {
+    id: 'cli-tools', name: 'CLI Tools', logo: 'C', color: '#475569',
+    tagline: 'Command-line tools for power teams',
+    overview: 'Fast, composable command-line utilities your developers and operators will actually use. Ship a binary or a pip install package — no UI bloat, no onboarding overhead.',
+    tech: ['Go / Rust / Python', 'Cobra / Click', 'Docker', 'GitHub Actions'], images: [],
+  },
+  {
+    id: 'webapps', name: 'Webapps', logo: 'W', color: '#0284C7',
+    tagline: 'Browser-based applications built for real usage',
+    overview: 'Full-stack web applications — from internal tools your team uses daily to customer-facing products. Auth, real-time, offline sync, mobile-responsive. Deployed and maintained by us.',
+    tech: ['Next.js', 'PostgreSQL', 'tRPC', 'Tailwind'], images: [],
+  },
+  {
+    id: 'websites', name: 'Websites', logo: 'W', color: '#EA580C',
+    tagline: 'Performance-first sites that load fast and rank high',
+    overview: 'Marketing sites, landing pages, and brand platforms. Optimised for Core Web Vitals, accessibility, and SEO. Built on Next.js or Astro with headless CMS when you need it.',
+    tech: ['Next.js / Astro', 'Tailwind CSS', 'Vercel / Cloudflare', 'Sanity / Notion'], images: [],
+  },
+  {
+    id: 'agent-orchestration', name: 'Agent Orchestration', logo: 'O', color: '#0891B2',
+    tagline: 'Multi-agent systems that coordinate and cooperate',
+    overview: 'One agent doesn\'t solve the whole problem. We build orchestrations — research agents, writer agents, reviewer agents — that hand off contextually, producing output no single model achieves alone.',
+    tech: ['CrewAI', 'LangGraph', 'FastAPI', 'Redis'], images: [],
+  },
+  // ── Existing work ──
 ];
 
 export { projects };
