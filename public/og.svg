@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#0D1017"/>
+  <rect width="6" height="630" fill="#0891B2"/>
+  <text x="80" y="200"
+    font-family="Arial,sans-serif" font-size="88" font-weight="bold" fill="#F8FAFC" letter-spacing="-2">
+    Agentcy
+  </text>
+  <text x="80" y="260"
+    font-family="Arial,sans-serif" font-size="30" fill="#94A3B8">
+    Leaders in Software. Experts in Intelligence.
+  </text>
+  <line x1="80" y1="300" x2="380" y2="300" stroke="#0891B2" stroke-width="2"/>
+  <text x="80" y="370"
+    font-family="Arial,sans-serif" font-size="22" fill="#64748B">
+    9 New Service Offerings — Now Live
+  </text>
+  <text x="80" y="450"
+    font-family="Arial,sans-serif" font-size="17" fill="#475569">
+    Knowledge Base · AI Assistants · Custom Tools · Custom Workflows · Custom Skills
+  </text>
+  <text x="80" y="490"
+    font-family="Arial,sans-serif" font-size="17" fill="#475569">
+    CLI Tools · Webapps · Websites · Agent Orchestration
+  </text>
+</svg>
