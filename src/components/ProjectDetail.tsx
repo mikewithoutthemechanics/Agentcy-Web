@@ -287,7 +287,7 @@ export default function ProjectDetail({ project, onBack }: { project: Project; o
                   color: i === 1 ? '#fff' : 'rgba(13,16,23,0.7)',
                   fontSize: 13, fontWeight: 600, textDecoration: 'none',
                 }}>
-                  Get started <ArrowLeft size={12} style={{ transform: 'rotate(180deg)' }} />
+                  Get started <a href="https://cal.com/michael-from-agentcy/30min" target="_blank" rel="noopener noreferrer"><ArrowLeft size={12} style={{ transform: 'rotate(180deg)' }} /></a>
                 </a>
               </div>
             ))}
