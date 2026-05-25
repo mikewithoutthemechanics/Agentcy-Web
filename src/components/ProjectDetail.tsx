@@ -287,8 +287,26 @@ export default function ProjectDetail({ project, onBack }: { project: Project; o
                   color: i === 1 ? '#fff' : 'rgba(13,16,23,0.7)',
                   fontSize: 13, fontWeight: 600, textDecoration: 'none',
                 }}>
-                  Get started <a href="https://cal.com/michael-from-agentcy/30min" target="_blank" rel="noopener noreferrer"><ArrowLeft size={12} style={{ transform: 'rotate(180deg)' }} /></a>
-                </a>
+                  <div className="space-y-2">
+                    <a href="#contact" style={{{
+                      display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 6,
+                      width: '100%', padding: '10px 0', borderRadius: 10,
+                      background: i === 1 ? project.color : 'rgba(13,16,23,0.06)',
+                      color: i === 1 ? '#fff' : 'rgba(13,16,23,0.7)',
+                      fontSize: 13, fontWeight: 600, textDecoration: 'none',
+                    }}}>
+                      Get started <ArrowLeft size={12} style={{ transform: 'rotate(180deg)' }} />
+                    </a>
+                    <button onClick={() => showCryptoAddresses()} style={{{
+                      display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 6,
+                      width: '100%', padding: '10px 0', borderRadius: 10,
+                      background: i === 1 ? project.color : 'rgba(13,16,23,0.06)',
+                      color: i === 1 ? '#fff' : 'rgba(13,16,23,0.7)',
+                      fontSize: 13, fontWeight: 600, textDecoration: 'none',
+                    }}}>
+                      Pay with ETH/BTC
+                    </button>
+                  </div>
               </div>
             ))}
           </div>
