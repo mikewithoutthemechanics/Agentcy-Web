@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Agentcy — Leaders in Software. Experts in Intelligence.</title>
+    <meta name="description" content="Agentcy builds Knowledge Bases, AI Assistants, Custom Tools, Webapps, Websites, and Agent Orchestration systems. Leaders in software. Experts in intelligence." />
+    <meta name="theme-color" content="#000000" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" href="/favicon.svg" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Agentcy — Leaders in Software. Experts in Intelligence." />
+    <meta property="og:description" content="9 new service offerings: Knowledge Base, AI Assistants, Custom Tools, Custom Workflows, Custom Skills, CLI Tools, Webapps, Websites, and Agent Orchestration." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://agentcy.co.za" />
+    <meta property="og:image" content="https://agentcy.co.za/og.svg" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Agentcy — Leaders in Software. Experts in Intelligence." />
+    <meta name="twitter:description" content="Knowledge Base, AI Assistants, Custom Tools, Webapps, Websites, Agent Orchestration — and more." />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

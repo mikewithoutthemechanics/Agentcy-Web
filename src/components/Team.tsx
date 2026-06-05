@@ -10,11 +10,6 @@ const team = [
     img: "/michael-kidd.jpg"
   },
   {
-    name: "Ryan Paul",
-    role: "Technical Director",
-    img: "/ryan-paul.jpg"
-  },
-  {
     name: "Marvin Saunders",
     role: "Strategy & Operations",
     img: "/marvin-saunders.jpg"

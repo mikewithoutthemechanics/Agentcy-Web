@@ -17,6 +17,16 @@ const testimonials = [
     quote: "Our operations team saved 30+ hours a week within the first month. The ROI was almost immediate — we're now scaling to every department.",
     author: "James Adeyemi",
     role: "COO, Stellarpath Group"
+  },
+  {
+    quote: "We went from zero WhatsApp CRM to live in 20 minutes — 40% fewer missed calls in the first week. Best R599 we've ever spent.",
+    author: "Lerato Mokoena",
+    role: "Owner, Mokoena Spaza, Pretoria East"
+  },
+  {
+    quote: "Agentcy didn't just build us a knowledge base — they gave our whole team a second brain. 4-hour onboarding, not 4 weeks.",
+    author: "Zoe van der Berg",
+    role: "Head of Ops, Venture Cape"
   }
 ];
 

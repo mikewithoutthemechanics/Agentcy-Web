@@ -12,7 +12,6 @@ const agents: Agent[] = [
   { name: 'Flux', image: 'https://api.dicebear.com/7.x/bottts-neutral/svg?seed=Flux&backgroundColor=ffd5dc' },
   { name: 'Nova', image: 'https://api.dicebear.com/7.x/bottts-neutral/svg?seed=Nova&backgroundColor=d1d4f9' },
   { name: 'Sage', image: 'https://api.dicebear.com/7.x/bottts-neutral/svg?seed=Sage&backgroundColor=c0aede' },
-  { name: 'Ryan Paul', image: '/ryan-paul.jpg' },
 ];
 
 export default function TiltHalo({ images, style }: { images?: Agent[]; style?: React.CSSProperties }) {
