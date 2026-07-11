@@ -63,6 +63,7 @@ export default function Team() {
                 <img
                   src={member.img}
                   alt={member.name}
+                  loading="lazy"
                   className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700 ease-out"
                 />
               </div>

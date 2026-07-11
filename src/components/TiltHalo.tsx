@@ -148,6 +148,7 @@ export default function TiltHalo({ images, style }: { images?: Agent[]; style?: 
               <img
                 src={item.image}
                 alt={item.name}
+                loading="lazy"
                 style={{
                   width: '100%', height: '100%',
                   objectFit: 'cover',

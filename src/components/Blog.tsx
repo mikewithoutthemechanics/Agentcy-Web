@@ -45,6 +45,71 @@ The companies that prepare for this now will capture demand that doesn't even ex
 Your website isn't a brochure anymore. It's a sales pitch to machines.`
   },
   {
+    slug: "the-token-economy-is-real-and-sa-businesses-need-to-pay-attention",
+    title: "The Token Economy Is Real - And SA Businesses Need to Pay Attention",
+    excerpt: "AI pricing is collapsing. Meta's Muse Spark API is at $4.25/M tokens. Here's what that means for South African businesses.",
+    date: "11 July 2026",
+    readTime: "4 min",
+    tag: "AI & Business",
+    content: `AI pricing is collapsing. GPT-5.6 just shipped. Meta's Muse Spark API is at $4.25/M output tokens. The cost of building AI-powered tools has never been lower.
+
+Here is what that means for South African businesses:
+
+1/ Custom AI tools are now affordable for mid-market operations
+2/ Token economics changes the build vs buy calculation
+3/ Local customization is the competitive edge
+
+The businesses that win in the next 12 months will not be the ones with the biggest AI budgets. They will be the ones who moved first.
+
+👉 Book a free discovery call: https://agentcy.co.za`
+  },
+  {
+    slug: "how-i-built-a-whatsapp-ai-assistant-for-a-sa-salon",
+    title: "How I Built a WhatsApp AI Assistant for a SA Salon - And What It Taught Me About Local AI",
+    excerpt: "Last month I deployed a WhatsApp CRM for a Durban salon. Before: 30% no-show rate. After: 8%. Here's what I learned.",
+    date: "12 July 2026",
+    readTime: "6 min",
+    tag: "WhatsApp & AI",
+    content: `Last month I deployed a WhatsApp CRM system for a hair salon in Durban. Before: 30% no-show rate, manual follow-ups, missed bookings during peak Saturday rush. After: 8% no-show rate, automated reminders, staff can focus on clients.
+
+Here is what I learned about building AI for SA businesses:
+
+1/ WhatsApp is the interface. Not email, not an app. WhatsApp. If your AI tool does not meet clients where they already are, it will not get used.
+
+2/ Local context matters more than model sophistication. A generic AI chatbot fails because it does not understand SA business hours, local payment methods, isiZulu/English code-switching, or the way local customers actually communicate.
+
+3/ The ROI is immediate and visible. Within 2 weeks, the salon owner saw the difference in revenue from reduced no-shows alone.
+
+The biggest mistake I see businesses making? They are building AI systems that look impressive in demos but solve problems their customers do not actually have.
+
+Start with the pain. Build from there.
+
+👉 See our WhatsApp CRM for SA businesses: https://agentcy.co.za`
+  },
+  {
+    slug: "why-anthropic-just-overtook-openai-and-what-it-means-for-every-sa-business",
+    title: "Why Anthropic Just Overtook OpenAI - And What It Means for Every SA Business Buying AI",
+    excerpt: "Anthropic is winning enterprise contracts while OpenAI fights perception battles. Here's why that matters for South African businesses.",
+    date: "13 July 2026",
+    readTime: "5 min",
+    tag: "AI & Business",
+    content: `Anthropic is winning enterprise contracts while OpenAI fights consumer perception battles. Here is why that matters for SA businesses:
+
+1/ Enterprise-first means better compliance, data handling, and SA-specific integrations
+2/ Claude context window handles local documentation better - contracts, proposals, compliance docs
+3/ The pricing pressure is forcing ALL vendors to be more competitive
+
+For SA businesses, this is actually good news. The AI price war means:
+- Better tools for less
+- More flexibility to switch
+- Local customization becoming the norm, not the premium
+
+The businesses winning are not the ones using the most expensive AI - they are the ones using the RIGHT AI for their specific operations.
+
+👉 See how we customize AI for SA businesses: https://agentcy.co.za`
+  },
+  },
+  {
     slug: "why-smes-are-ditching-spreadsheets-for-ai",
     title: "Why SMEs Are Ditching Spreadsheets for AI (And Never Going Back)",
     excerpt: "The spreadsheet was the SME's best friend for 30 years. Here's why growing businesses are replacing them with AI-powered tools — and what they're getting in return.",
