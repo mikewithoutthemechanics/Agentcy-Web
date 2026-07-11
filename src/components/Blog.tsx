@@ -108,7 +108,6 @@ The businesses winning are not the ones using the most expensive AI - they are t
 
 👉 See how we customize AI for SA businesses: https://agentcy.co.za`
   },
-  },
   {
     slug: "why-smes-are-ditching-spreadsheets-for-ai",
     title: "Why SMEs Are Ditching Spreadsheets for AI (And Never Going Back)",
