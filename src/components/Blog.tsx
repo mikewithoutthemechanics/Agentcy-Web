@@ -400,6 +400,15 @@ Setup cost? A Meta Business account (free) + the WhatsApp Business API (pay per 
 
 That's less than you spend on coffee for the office.`
   },
+  {
+    slug: "the-roi-of-ai-for-sa-retail-stores",
+    title: "The ROI of AI for SA Retail Stores",
+    excerpt: "The ROI of AI for SA Retail Stores",
+    date: "12 July 2026",
+    readTime: "4 min",
+    tag: "AI & Business",
+    content: \`Coming soon. Book a discovery call to learn more: https://agentcy.co.za\`
+  },
 
 ];
 ];
