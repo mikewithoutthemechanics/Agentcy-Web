@@ -399,7 +399,16 @@ For SA businesses, this isn't a nice-to-have. WhatsApp is where your customers l
 Setup cost? A Meta Business account (free) + the WhatsApp Business API (pay per conversation) + a custom automation layer. Total monthly cost for most SMEs: under R2,000.
 
 That's less than you spend on coffee for the office.`
+  },  {
+    slug: "lines-are-consumed-fifo-add-more-here-as-needed",
+    title: "# Lines are consumed FIFO; add more here as needed.",
+    excerpt: "# Lines are consumed FIFO; add more here as needed.",
+    date: "12 July 2026",
+    readTime: "4 min",
+    tag: "AI & Business",
+    content: \`Coming soon. Book a discovery call to learn more: https://agentcy.co.za\`
   },
+
 ];
 
 export default function Blog() {
