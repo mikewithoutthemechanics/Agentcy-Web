@@ -407,12 +407,19 @@ That's less than you spend on coffee for the office.`
     date: "12 July 2026",
     readTime: "4 min",
     tag: "AI & Business",
+    content: "Coming soon. Book a discovery call to learn more: https://agentcy.co.za"
+  },
+  {
+    slug: "automating-invoices-with-ai-for-sa-smes",
+    title: "Automating Invoices with AI for SA SMEs",
+    excerpt: "Automating Invoices with AI for SA SMEs",
+    date: "12 July 2026",
+    readTime: "4 min",
+    tag: "AI & Business",
     content: \`Coming soon. Book a discovery call to learn more: https://agentcy.co.za\`
   },
 
 ];
-];
-
 export default function Blog() {
   const [selectedPost, setSelectedPost] = useState<Post | null>(null);
 
