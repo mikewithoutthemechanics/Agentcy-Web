@@ -11,8 +11,6 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 import Terms from './components/Terms';
 import Privacy from './components/Privacy';
-import Blog from './components/Blog';
-import CaseStudies from './components/CaseStudies';
 
 function usePath() {
   const [path, setPath] = useState(window.location.pathname);
@@ -47,8 +45,6 @@ export default function App() {
   // Sub-pages
   if (path === '/terms') return <Layout><Terms /></Layout>;
   if (path === '/privacy') return <Layout><Privacy /></Layout>;
-  if (path === '/blog') return <Layout><Blog /></Layout>;
-  if (path === '/case-studies') return <Layout><CaseStudies /></Layout>;
 
   // Main landing
   return (
