@@ -409,6 +409,15 @@ That's less than you spend on coffee for the office.`
     tag: "AI & Business",
     content: "Coming soon. Book a discovery call to learn more: https://agentcy.co.za"
   },
+  {
+    slug: "how-to-reduce-customer-churn-with-whatsapp-automation",
+    title: "How to Reduce Customer Churn with WhatsApp Automation",
+    excerpt: "How to Reduce Customer Churn with WhatsApp Automation",
+    date: "13 July 2026",
+    readTime: "4 min",
+    tag: "AI & Business",
+    content: "Coming soon. Book a discovery call to learn more: https://agentcy.co.za"
+  },
 
 ];
 export default function Blog() {

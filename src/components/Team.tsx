@@ -8,11 +8,6 @@ const team = [
     name: "Michael Kidd",
     role: "Founder & Lead Developer",
     img: "/michael-kidd.jpg"
-  },
-  {
-    name: "Marvin Saunders",
-    role: "Strategy & Operations",
-    img: "/marvin-saunders.jpg"
   }
 ];
 
