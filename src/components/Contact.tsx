@@ -1,17 +1,19 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { ArrowRight, Send, CheckCircle, Calendar } from 'lucide-react';
+import { ArrowRight, Send, CheckCircle, Calendar, MessageCircle } from 'lucide-react';
 
 const ease = [0.16, 1, 0.3, 1] as const;
 
 export default function Contact() {
   const [submitted, setSubmitted] = useState(false);
   const [sending, setSending] = useState(false);
+  const [error, setError] = useState(false);
   const [mode, setMode] = useState<'form' | 'book'>('form');
   const [formData, setFormData] = useState({ name: '', email: '', company: '', message: '' });
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setError(false);
     setSending(true);
     try {
       const res = await fetch('/api/contact', {
@@ -19,10 +21,13 @@ export default function Contact() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
       });
-      if (res.ok) setSubmitted(true);
+      if (res.ok) {
+        setSubmitted(true);
+      } else {
+        setError(true);
+      }
     } catch (err) {
-      // silently fail for now — form shows success regardless
-      setSubmitted(true);
+      setError(true);
     }
     setSending(false);
   };
@@ -30,7 +35,7 @@ export default function Contact() {
   const update = (field: string, value: string) => setFormData(prev => ({ ...prev, [field]: value }));
 
   return (
-    <section id="contact" className="bg-white text-black py-32 px-6">
+    <section id="contact" className="bg-white text-black py-24 md:py-32 px-6 md:px-10">
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col md:flex-row gap-16 md:gap-24">
           {/* Left */}
@@ -40,9 +45,9 @@ export default function Contact() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.75, ease }}
-              className="text-[clamp(3rem,8vw,6rem)] font-bold tracking-tighter leading-[0.9] mb-8"
+              className="text-[clamp(2.5rem,5vw,4.5rem)] font-bold tracking-tighter leading-[0.9] mb-8"
             >
-              Let's<br />build
+              Let's find your edge.
             </motion.h2>
             <motion.p
               initial={{ opacity: 0 }}
@@ -51,7 +56,7 @@ export default function Contact() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="text-xl text-gray-500 leading-relaxed max-w-md mb-10"
             >
-              Tell us about your project. We'll get back to you within 24 hours.
+              Tell us about your business. We'll get back to you within 24 hours — or book a free 20-min audit right now.
             </motion.p>
 
             {/* Mode toggle */}
@@ -92,8 +97,12 @@ export default function Contact() {
                 <a href="mailto:michael@agentcy.co.za" className="hover:text-black transition-colors">michael@agentcy.co.za</a>
               </p>
               <p className="text-sm">
+                <span className="font-semibold text-black">WhatsApp</span><br />
+                <a href="https://wa.me/27600000000" target="_blank" rel="noopener noreferrer" className="hover:text-black transition-colors">Chat with us on WhatsApp</a>
+              </p>
+              <p className="text-sm">
                 <span className="font-semibold text-black">Based in</span><br />
-                Cape Town, South Africa — working globally
+                Ballito & Knysna, South Africa — working nationally
               </p>
             </motion.div>
           </div>
@@ -117,9 +126,20 @@ export default function Contact() {
                 >
                   {submitted ? (
                     <div className="bg-gray-50 rounded-3xl p-12 flex flex-col items-center justify-center text-center min-h-[400px]">
-                      <CheckCircle className="w-12 h-12 text-black mb-6" />
+                      <CheckCircle className="w-12 h-12 mb-6" style={{ color: '#3AAFA9' }} />
                       <h3 className="text-2xl font-bold mb-3">Got it.</h3>
                       <p className="text-gray-500 text-lg">We'll be in touch within 24 hours.</p>
+                    </div>
+                  ) : error ? (
+                    <div className="bg-gray-50 rounded-3xl p-12 flex flex-col items-center justify-center text-center min-h-[400px]">
+                      <p className="text-gray-500 text-lg mb-4">Something went wrong sending your message.</p>
+                      <button
+                        onClick={() => setError(false)}
+                        className="px-6 py-3 rounded-full font-semibold text-sm"
+                        style={{ background: '#0D1017', color: '#fff' }}
+                      >
+                        Try again
+                      </button>
                     </div>
                   ) : (
                     <form onSubmit={handleSubmit} className="space-y-6">
@@ -158,14 +178,14 @@ export default function Contact() {
                         />
                       </div>
                       <div>
-                        <label className="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-2 block">What do you need?</label>
+                        <label className="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-2 block">What's the biggest bottleneck in your business right now?</label>
                         <textarea
                           required
                           rows={5}
                           value={formData.message}
                           onChange={(e) => update('message', e.target.value)}
                           className="w-full bg-gray-50 border border-gray-200 rounded-xl px-5 py-4 text-base focus:outline-none focus:ring-2 focus:ring-black/10 focus:border-black transition-all resize-none"
-                          placeholder="Tell us about your project..."
+                          placeholder="Tell us about your operational drag..."
                         />
                       </div>
                       <button
@@ -187,7 +207,6 @@ export default function Contact() {
                   transition={{ duration: 0.3 }}
                   className="bg-gray-50 rounded-3xl overflow-hidden min-h-[500px]"
                 >
-                  {/* Cal.com embed — replace YOUR_CALCOM_USERNAME with actual username */}
                   <iframe
                     src="https://cal.com/michael-from-agentcy/30min?embed=true&theme=light"
                     width="100%"

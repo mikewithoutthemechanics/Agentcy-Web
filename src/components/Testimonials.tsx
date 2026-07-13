@@ -1,32 +1,33 @@
-import { useState } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { motion } from 'motion/react';
+import { Star } from 'lucide-react';
+
+const ease = [0.16, 1, 0.3, 1] as const;
 
 const testimonials = [
   {
-    quote: "From the initial audit to full deployment, every detail felt intentional — it was a masterclass in how to transform a business with AI.",
-    author: "Isabella Conte",
-    role: "CEO, Brightseed Ventures"
+    quote: "Agentcy came in, learned our dispatch process in three days, and automated it. We went from 30 missed calls a day to zero.",
+    author: "Johan van der Merwe",
+    role: "Operations Manager, Coastal Logistics, Durban"
   },
   {
-    quote: "I've worked with countless agencies, but Agentcy is the first that felt both inspired and deeply equipped to make real, lasting change.",
-    author: "Alina Chen",
-    role: "Founder, New Futures"
+    quote: "We thought automation was for big corporates. Agentcy proved it works for a 12-person business. We now have a WhatsApp CRM that never misses a lead.",
+    author: "Priya Naidoo",
+    role: "Owner, Crystal Clear Properties, Ballito"
   },
   {
-    quote: "Our operations team saved 30+ hours a week within the first month. The ROI was almost immediate — we're now scaling to every department.",
-    author: "James Adeyemi",
-    role: "COO, Stellarpath Group"
+    quote: "The onboarding used to take 4 weeks. Agentcy built us a knowledge base and automated SOP system — new hires are productive in 4 hours now.",
+    author: "Sipho Mthembu",
+    role: "Head of Ops, BuildFast Construction, Johannesburg"
   },
   {
-    quote: "We went from zero WhatsApp CRM to live in 20 minutes — 40% fewer missed calls in the first week. Best R599 we've ever spent.",
-    author: "Lerato Mokoena",
-    role: "Owner, Mokoena Spaza, Pretoria East"
+    quote: "I used to spend 15 hours a week on admin. Now I spend that time on sales. Revenue is up 25% in 90 days.",
+    author: "Lisa Hartley",
+    role: "Founder, Hartley Interiors, Knysna"
   },
   {
-    quote: "Agentcy didn't just build us a knowledge base — they gave our whole team a second brain. 4-hour onboarding, not 4 weeks.",
-    author: "Zoe van der Berg",
-    role: "Head of Ops, Venture Cape"
+    quote: "They didn't just build us a tool — they embedded with our team for two weeks. That made all the difference.",
+    author: "Craig Boden",
+    role: "MD, Boden Freight, Cape Town"
   }
 ];
 
@@ -38,7 +39,7 @@ export default function Testimonials() {
 
   return (
     <section className="bg-white text-black py-20 px-6 relative z-40">
-      <div className="max-w-4xl mx-auto text-center relative">
+      <div className="max-w-5xl mx-auto text-center relative">
         <div className="min-h-[280px] flex flex-col justify-center items-center">
           <AnimatePresence mode="wait">
             <motion.div
@@ -49,6 +50,11 @@ export default function Testimonials() {
               transition={{ duration: 0.45 }}
               className="px-6 md:px-20"
             >
+              <div className="flex justify-center mb-6">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} size={20} fill="#3AAFA9" color="#3AAFA9" />
+                ))}
+              </div>
               <h3 className="text-xl md:text-4xl font-medium tracking-tight leading-tight mb-8">
                 "{testimonials[current].quote}"
               </h3>
@@ -72,10 +78,10 @@ export default function Testimonials() {
         </div>
 
         <button onClick={prev} className="absolute left-0 top-1/2 -translate-y-1/2 p-3 hover:bg-gray-100 rounded-full transition-colors">
-          <ChevronLeft className="w-7 h-7" />
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m15 18-6-6 6-6"/></svg>
         </button>
         <button onClick={next} className="absolute right-0 top-1/2 -translate-y-1/2 p-3 hover:bg-gray-100 rounded-full transition-colors">
-          <ChevronRight className="w-7 h-7" />
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6"/></svg>
         </button>
       </div>
     </section>

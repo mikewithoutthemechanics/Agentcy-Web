@@ -1,21 +1,18 @@
 import { useState, useCallback, useEffect } from 'react';
-import Loader from './components/Loader';
 import Hero from './components/Hero';
-import About from './components/About';
-import NightworkShowcase from './components/NightworkShowcase';
-import HorizontalShowcase from './components/HorizontalShowcase';
-import Team from './components/Team';
-import Schedule from './components/Schedule';
+import Services from './components/Services';
+import HowItWorks from './components/HowItWorks';
+import WhyAgentcy from './components/WhyAgentcy';
+import Results from './components/Results';
+import Pricing from './components/Pricing';
 import Testimonials from './components/Testimonials';
-import Tickets from './components/Tickets';
-import Contact from './components/Contact';
 import FAQ from './components/FAQ';
+import Contact from './components/Contact';
 import Footer from './components/Footer';
 import Terms from './components/Terms';
 import Privacy from './components/Privacy';
 import Blog from './components/Blog';
 import CaseStudies from './components/CaseStudies';
-import Romy from './components/Romy';
 
 function usePath() {
   const [path, setPath] = useState(window.location.pathname);
@@ -34,7 +31,7 @@ function usePath() {
     document.addEventListener('click', clickHandler);
     return () => {
       window.removeEventListener('popstate', handler);
-      document.removeEventListener('click', clickHandler);
+      window.removeEventListener('click', clickHandler);
     };
   }, []);
   return path;
@@ -45,12 +42,9 @@ function Layout({ children }: { children: React.ReactNode }) {
 }
 
 export default function App() {
-  const [loaded, setLoaded] = useState(false);
-  const handleComplete = useCallback(() => setLoaded(true), []);
   const path = usePath();
 
   // Sub-pages
-  if (path === '/romy') return <Layout><Romy /></Layout>;
   if (path === '/terms') return <Layout><Terms /></Layout>;
   if (path === '/privacy') return <Layout><Privacy /></Layout>;
   if (path === '/blog') return <Layout><Blog /></Layout>;
@@ -59,15 +53,14 @@ export default function App() {
   // Main landing
   return (
     <>
-      {!loaded && <Loader onComplete={handleComplete} />}
       <main style={{ background: '#F5F5F3', color: '#0D1017', minHeight: '100vh' }}>
         <Hero />
-        <About />
-        <HorizontalShowcase />
-        <Team />
-        <Schedule />
+        <Services />
+        <HowItWorks />
+        <WhyAgentcy />
+        <Results />
+        <Pricing />
         <Testimonials />
-        <Tickets />
         <FAQ />
         <Contact />
         <Footer />
