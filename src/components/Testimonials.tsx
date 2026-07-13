@@ -1,4 +1,5 @@
-import { motion } from 'motion/react';
+import { motion, AnimatePresence } from 'motion/react';
+import { useState } from 'react';
 import { Star } from 'lucide-react';
 
 const ease = [0.16, 1, 0.3, 1] as const;

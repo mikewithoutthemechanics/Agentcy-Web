@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, React } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { ArrowRight, Send, CheckCircle, Calendar, MessageCircle } from 'lucide-react';
 
@@ -11,7 +11,7 @@ export default function Contact() {
   const [mode, setMode] = useState<'form' | 'book'>('form');
   const [formData, setFormData] = useState({ name: '', email: '', company: '', message: '' });
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setError(false);
     setSending(true);

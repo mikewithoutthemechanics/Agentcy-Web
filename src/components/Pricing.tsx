@@ -60,9 +60,14 @@ export default function Pricing() {
         <div className="text-center max-w-3xl mx-auto mb-16 md:mb-24">
           <motion.span
             initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}
-            className="block text-xs font-semibold uppercase tracking-[0.2em] mb-4"
-            style={{ color: 'rgba(13,16,23,0.35)' }}
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-semibold uppercase tracking-[0.2em] mb-4"
+            style={{
+              background: 'rgba(58,175,169,0.08)',
+              color: '#3AAFA9',
+              border: '1px solid rgba(58,175,169,0.15)'
+            }}
           >
+            <span className="w-1.5 h-1.5 rounded-full" style={{ background: '#3AAFA9' }} />
             Pricing
           </motion.span>
           <motion.h2
@@ -92,7 +97,7 @@ export default function Pricing() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1, duration: 0.6, ease }}
-              className="flex flex-col p-8 md:p-10 rounded-3xl"
+              className="flex flex-col p-8 md:p-10 rounded-3xl pricing-highlight relative"
               style={{
                 background: tier.highlighted ? '#0D1017' : '#fff',
                 color: tier.highlighted ? '#F5F5F3' : '#0D1017',
@@ -128,7 +133,7 @@ export default function Pricing() {
 
               <a
                 href="#contact"
-                className="w-full inline-flex items-center justify-center gap-2 px-6 py-4 rounded-full font-semibold transition-all hover:scale-105"
+                className="w-full inline-flex items-center justify-center gap-2 px-6 py-4 rounded-full font-semibold btn-primary"
                 style={{
                   background: tier.highlighted ? '#3AAFA9' : '#F5F5F3',
                   color: tier.highlighted ? '#0D1017' : '#0D1017'
