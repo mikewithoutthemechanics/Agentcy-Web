@@ -12,20 +12,20 @@ export default function Hero() {
         <div style={{
           position: 'absolute', inset: 0,
           background: `
-            radial-gradient(ellipse 100% 80% at 50% -20%, rgba(58,175,169,0.18) 0%, transparent 55%),
-            radial-gradient(ellipse 80% 60% at 80% 100%, rgba(58,175,169,0.1) 0%, transparent 50%),
-            radial-gradient(ellipse 60% 50% at 10% 60%, rgba(58,175,169,0.06) 0%, transparent 50%)
+            radial-gradient(ellipse 100% 80% at 50% -20%, rgba(58,175,169,0.15) 0%, transparent 55%),
+            radial-gradient(ellipse 80% 60% at 80% 100%, rgba(58,175,169,0.08) 0%, transparent 50%),
+            radial-gradient(ellipse 60% 50% at 10% 60%, rgba(58,175,169,0.05) 0%, transparent 50%)
           `
         }} />
 
-        {/* Animated floating orbs */}
+        {/* Video-like animated orbs */}
         <motion.div
           animate={{ x: [0, 40, -30, 0], y: [0, -50, 30, 0], scale: [1, 1.1, 0.95, 1] }}
           transition={{ duration: 28, repeat: Infinity, ease: 'easeInOut' }}
           style={{
             position: 'absolute', width: '60vw', height: '60vw', maxWidth: 700, maxHeight: 700,
             top: '-20%', left: '-15%', borderRadius: '50%',
-            background: 'radial-gradient(circle, rgba(58,175,169,0.15) 0%, transparent 65%)',
+            background: 'radial-gradient(circle, rgba(58,175,169,0.12) 0%, transparent 65%)',
             filter: 'blur(100px)', willChange: 'transform'
           }}
         />
@@ -35,7 +35,7 @@ export default function Hero() {
           style={{
             position: 'absolute', width: '50vw', height: '50vw', maxWidth: 550, maxHeight: 550,
             bottom: '-20%', right: '-15%', borderRadius: '50%',
-            background: 'radial-gradient(circle, rgba(58,175,169,0.1) 0%, transparent 65%)',
+            background: 'radial-gradient(circle, rgba(58,175,169,0.08) 0%, transparent 65%)',
             filter: 'blur(80px)', willChange: 'transform'
           }}
         />
@@ -46,22 +46,22 @@ export default function Hero() {
             position: 'absolute', top: '35%', left: '50%', transform: 'translateX(-50%)',
             width: '70vw', height: '35vw', maxWidth: 800, maxHeight: 350,
             borderRadius: '50%',
-            background: 'radial-gradient(ellipse, rgba(58,175,169,0.08) 0%, transparent 65%)',
+            background: 'radial-gradient(ellipse, rgba(58,175,169,0.06) 0%, transparent 65%)',
             filter: 'blur(120px)', willChange: 'transform'
           }}
         />
 
-        {/* Subtle dot grid for depth */}
+        {/* Dot grid for depth */}
         <div style={{
           position: 'absolute', inset: 0,
-          backgroundImage: 'radial-gradient(rgba(245,245,243,0.04) 1px, transparent 1px)',
+          backgroundImage: 'radial-gradient(rgba(245,245,243,0.03) 1px, transparent 1px)',
           backgroundSize: '32px 32px',
           maskImage: 'radial-gradient(ellipse 80% 60% at 50% 40%, black, transparent)',
           WebkitMaskImage: 'radial-gradient(ellipse 80% 60% at 50% 40%, black, transparent)'
         }} />
 
         {/* Bottom fade into next section */}
-        <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: 320, background: 'linear-gradient(to top, #F5F5F3, transparent)' }} />
+        <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: 320, background: 'linear-gradient(to top, #0D1017, transparent)' }} />
       </div>
 
       {/* Glassmorphism nav */}
@@ -71,7 +71,7 @@ export default function Hero() {
         transition={{ duration: 0.7, ease }}
         className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 md:px-10 py-5 max-w-7xl mx-auto"
         style={{
-          backgroundColor: 'rgba(13,16,23,0.68)',
+          backgroundColor: 'rgba(13,16,23,0.8)',
           backdropFilter: 'blur(28px)',
           WebkitBackdropFilter: 'blur(28px)',
           borderBottom: '1px solid rgba(245,245,243,0.06)'
@@ -124,7 +124,7 @@ export default function Hero() {
           </span>
         </motion.div>
 
-        {/* Headline — pain first, solution second */}
+        {/* Headline */}
         <motion.h1
           initial={{ opacity: 0, y: 60 }}
           animate={{ opacity: 1, y: 0 }}
@@ -156,7 +156,7 @@ export default function Hero() {
           </span>
         </motion.h1>
 
-        {/* Subhead — pain-first, differentiate from offshore agencies */}
+        {/* Subhead */}
         <motion.p
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -200,27 +200,45 @@ export default function Hero() {
           </a>
         </motion.div>
 
-        {/* Trust strip */}
+        {/* Stats strip - Conicorn style */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 1.4, duration: 0.8, ease }}
-          className="mt-20 flex items-center gap-6 md:gap-8 text-xs md:text-sm font-medium"
-          style={{ color: 'rgba(245,245,243,0.35)' }}
+          transition={{ delay: 1.2, duration: 0.8, ease }}
+          className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 w-full max-w-4xl mx-auto"
         >
           {[
-            { label: 'On-site SA-wide' },
-            { label: 'Ballito · Knysna' },
-            { label: 'Free audit' },
-            { label: 'No lock-in' }
-          ].map((item, i) => (
-            <span key={item.label} className="flex items-center gap-6 md:gap-8">
-              <span className="flex items-center gap-2">
-                <span className="w-1 h-1 rounded-full" style={{ background: 'rgba(58,175,169,0.6)' }} />
-                {item.label}
-              </span>
-              {i < 3 && <span style={{ width: 1, height: 14, background: 'rgba(245,245,243,0.1)' }} />}
-            </span>
+            { number: '30+', label: 'hours saved per week', sub: 'For a logistics client in Durban' },
+            { number: '40%', label: 'fewer missed calls', sub: 'WhatsApp CRM for retail chain' },
+            { number: '4hrs', label: 'to full-team onboarding', sub: 'From 4 weeks to 4 hours' },
+            { number: 'R0', label: 'wasted on manual admin', sub: 'After workflow automation' }
+          ].map((stat, i) => (
+            <motion.div
+              key={stat.number}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 1.3 + i * 0.1, duration: 0.6 }}
+              className="text-center"
+            >
+              <div
+                className="text-4xl md:text-5xl font-bold tracking-tighter mb-2"
+                style={{ color: '#3AAFA9' }}
+              >
+                {stat.number}
+              </div>
+              <div
+                className="text-xs md:text-sm font-semibold uppercase tracking-widest mb-1"
+                style={{ color: 'rgba(245,245,243,0.6)' }}
+              >
+                {stat.label}
+              </div>
+              <div
+                className="text-xs"
+                style={{ color: 'rgba(245,245,243,0.3)' }}
+              >
+                {stat.sub}
+              </div>
+            </motion.div>
           ))}
         </motion.div>
       </div>

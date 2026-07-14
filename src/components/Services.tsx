@@ -1,7 +1,8 @@
 import { motion } from 'motion/react';
-import { BarChart3, Bot, Workflow, Wrench, MessageSquare, FileText } from 'lucide-react';
+import { Bot, Workflow, Wrench, BarChart3, MessageSquare, FileText, Check } from 'lucide-react';
 
 const ease = [0.16, 1, 0.3, 1] as const;
+import EyeBrow from './EyeBrow';
 
 const services = [
   {
@@ -44,8 +45,8 @@ const services = [
 
 export default function Services() {
   return (
-    <section id="services" className="py-24 md:py-32 px-6 md:px-10" style={{ background: '#F5F5F3' }}>
-      <div className="max-w-7xl mx-auto">
+    <section id="services" className="py-24 md:py-32 px-6 md:px-10 relative z-30" style={{ background: '#0D1017' }}>
+      <div className="container-medium">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
@@ -54,32 +55,22 @@ export default function Services() {
           transition={{ duration: 0.9, ease }}
           className="max-w-3xl mb-16 md:mb-24"
         >
-          <span
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-semibold uppercase tracking-[0.2em] mb-4"
-            style={{
-              background: 'rgba(58,175,169,0.08)',
-              color: '#3AAFA9',
-              border: '1px solid rgba(58,175,169,0.15)'
-            }}
-          >
-            <span className="w-1.5 h-1.5 rounded-full" style={{ background: '#3AAFA9' }} />
-            What we do
-          </span>
+          <EyeBrow label="Our capabilities" number="003" />
           <h2
             className="text-[clamp(2.5rem,5vw,4.5rem)] font-bold tracking-tighter leading-[0.95] mb-6"
-            style={{ color: '#0D1017' }}
+            style={{ color: '#F5F5F3' }}
           >
-            We turn operational drag into your competitive edge.
+            AI-driven services that fit your business
           </h2>
           <p
             className="text-lg md:text-xl leading-relaxed"
-            style={{ color: 'rgba(13,16,23,0.55)' }}
+            style={{ color: 'rgba(245,245,243,0.5)' }}
           >
             Every engagement starts with a deep audit. We learn your processes as well as you know them — then we build the automation, tools, and AI systems that remove friction for good.
           </p>
         </motion.div>
 
-        {/* Service cards */}
+        {/* Service cards - Conicorn style with icon frames */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {services.map((service, i) => (
             <motion.div
@@ -90,52 +81,57 @@ export default function Services() {
               transition={{ delay: i * 0.08, duration: 0.6, ease }}
               whileHover={{ y: -8, transition: { duration: 0.3 } }}
               className="service-card group flex flex-col p-8 md:p-10 rounded-3xl cursor-pointer"
-              style={{
-                background: '#fff',
-                border: '1px solid rgba(13,16,23,0.08)',
-                boxShadow: '0 1px 2px rgba(0,0,0,0.04)'
-              }}
             >
+              {/* Icon frame */}
               <div
                 className="w-14 h-14 rounded-2xl flex items-center justify-center mb-6 transition-all duration-300"
                 style={{
                   background: 'rgba(58,175,169,0.08)',
-                  color: '#3AAFA9'
+                  color: '#3AAFA9',
+                  border: '1px solid rgba(58,175,169,0.15)'
                 }}
               >
                 <service.icon size={26} strokeWidth={1.5} />
               </div>
 
+              {/* Image placeholder - card image area */}
+              <div
+                className="w-full h-32 rounded-xl mb-6 overflow-hidden relative"
+                style={{
+                  background: 'linear-gradient(135deg, rgba(58,175,169,0.05), rgba(58,175,169,0.02))',
+                  border: '1px solid rgba(245,245,243,0.06)'
+                }}
+              >
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="text-xs uppercase tracking-widest" style={{ color: 'rgba(245,245,243,0.2)' }}>
+                    {service.title}
+                  </div>
+                </div>
+              </div>
+
               <h3
                 className="text-xl font-bold mb-3 tracking-tight transition-colors"
-                style={{ color: '#0D1017' }}
+                style={{ color: '#F5F5F3' }}
               >
                 {service.title}
               </h3>
 
               <p
                 className="text-base leading-relaxed mb-6 flex-1"
-                style={{ color: 'rgba(13,16,23,0.55)' }}
+                style={{ color: 'rgba(245,245,243,0.5)' }}
               >
                 {service.desc}
               </p>
 
-              <a
-                href="#contact"
-                className="inline-flex items-center gap-2 text-sm font-semibold transition-all duration-200 group-hover:gap-3"
-                style={{ color: '#3AAFA9' }}
-              >
-                Enquire now
-                <svg
-                  width="16"
-                  height="16"
-                  viewBox="0 0 16 16"
-                  fill="none"
-                  className="transition-transform duration-200 group-hover:translate-x-1"
-                >
-                  <path d="M6 3L11 8L6 13" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-              </a>
+              {/* Checkmark indicator */}
+              <div className="flex items-center gap-2 mt-auto">
+                <span className="w-4 h-4 rounded-full flex items-center justify-center" style={{ background: 'rgba(58,175,169,0.15)' }}>
+                  <Check size={10} color="#3AAFA9" strokeWidth={3} />
+                </span>
+                <span className="text-xs font-semibold uppercase tracking-widest" style={{ color: '#3AAFA9' }}>
+                  Available
+                </span>
+              </div>
             </motion.div>
           ))}
         </div>

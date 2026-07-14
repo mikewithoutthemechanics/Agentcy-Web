@@ -1,5 +1,7 @@
 import { motion } from 'motion/react';
-import { ArrowRight } from 'lucide-react';
+import { useState } from 'react';
+import { ArrowRight, Check } from 'lucide-react';
+import EyeBrow from './EyeBrow';
 
 const ease = [0.16, 1, 0.3, 1] as const;
 
@@ -54,39 +56,53 @@ const tiers = [
 ];
 
 export default function Pricing() {
+  const [isAnnual, setIsAnnual] = useState(false);
+
   return (
-    <section id="pricing" className="py-24 md:py-32 px-6 md:px-10" style={{ background: '#F5F5F3' }}>
-      <div className="max-w-7xl mx-auto">
+    <section id="pricing" className="py-24 md:py-32 px-6 md:px-10 relative z-30" style={{ background: '#0D1017' }}>
+      <div className="container-medium">
         <div className="text-center max-w-3xl mx-auto mb-16 md:mb-24">
-          <motion.span
-            initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-semibold uppercase tracking-[0.2em] mb-4"
-            style={{
-              background: 'rgba(58,175,169,0.08)',
-              color: '#3AAFA9',
-              border: '1px solid rgba(58,175,169,0.15)'
-            }}
-          >
-            <span className="w-1.5 h-1.5 rounded-full" style={{ background: '#3AAFA9' }} />
-            Pricing
-          </motion.span>
+          <EyeBrow label="Pricing" number="008" />
           <motion.h2
             initial={{ opacity: 0, y: 40, clipPath: 'inset(100% 0 0 0)' }}
             whileInView={{ opacity: 1, y: 0, clipPath: 'inset(0% 0 0 0)' }}
             viewport={{ once: true }}
             transition={{ duration: 0.9, ease }}
             className="text-[clamp(2.5rem,5vw,4.5rem)] font-bold tracking-tighter leading-[0.95] mb-6"
+            style={{ color: '#F5F5F3' }}
           >
-            Simple pricing. Real results.
+            Built for growth at every stage
           </motion.h2>
           <motion.p
             initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="text-lg md:text-xl leading-relaxed"
-            style={{ color: 'rgba(13,16,23,0.55)' }}
+            className="text-lg md:text-xl leading-relaxed mb-8"
+            style={{ color: 'rgba(245,245,243,0.5)' }}
           >
             Every engagement starts with a conversation. Pick a tier or reach out — we'll recommend what fits.
           </motion.p>
+
+          {/* Toggle */}
+          <div className="inline-flex items-center gap-4 p-1 rounded-full" style={{ background: '#141922', border: '1px solid rgba(245,245,243,0.06)' }}>
+            <button
+              onClick={() => setIsAnnual(false)}
+              className={`px-6 py-2.5 rounded-full text-sm font-semibold transition-all ${
+                !isAnnual ? 'text-[#0D1017]' : 'text-[rgba(245,245,243,0.5)]'
+              }`}
+              style={!isAnnual ? { background: '#3AAFA9' } : {}}
+            >
+              One-off
+            </button>
+            <button
+              onClick={() => setIsAnnual(true)}
+              className={`px-6 py-2.5 rounded-full text-sm font-semibold transition-all ${
+                isAnnual ? 'text-[#0D1017]' : 'text-[rgba(245,245,243,0.5)]'
+              }`}
+              style={isAnnual ? { background: '#3AAFA9' } : {}}
+            >
+              Monthly
+            </button>
+          </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
@@ -99,9 +115,9 @@ export default function Pricing() {
               transition={{ delay: i * 0.1, duration: 0.6, ease }}
               className="flex flex-col p-8 md:p-10 rounded-3xl pricing-highlight relative"
               style={{
-                background: tier.highlighted ? '#0D1017' : '#fff',
-                color: tier.highlighted ? '#F5F5F3' : '#0D1017',
-                border: tier.highlighted ? '2px solid #3AAFA9' : '1px solid rgba(13,16,23,0.08)'
+                background: tier.highlighted ? '#0D1017' : '#141922',
+                color: tier.highlighted ? '#F5F5F3' : '#F5F5F3',
+                border: tier.highlighted ? '2px solid #3AAFA9' : '1px solid rgba(245,245,243,0.06)'
               }}
             >
               {tier.highlighted && (
@@ -112,16 +128,16 @@ export default function Pricing() {
               )}
 
               <div className="mb-6">
-                <h3 className="text-xl font-bold tracking-tight mb-1">{tier.name}</h3>
-                <p className="text-sm" style={{ color: tier.highlighted ? 'rgba(245,245,243,0.55)' : 'rgba(13,16,23,0.45)' }}>
+                <h3 className="text-xl font-bold tracking-tight mb-1" style={{ color: '#F5F5F3' }}>{tier.name}</h3>
+                <p className="text-sm" style={{ color: 'rgba(245,245,243,0.45)' }}>
                   {tier.tagline}
                 </p>
               </div>
 
               <div className="mb-8">
-                <span className="text-4xl md:text-5xl font-bold tracking-tighter">{tier.price}</span>
+                <span className="text-4xl md:text-5xl font-bold tracking-tighter" style={{ color: '#F5F5F3' }}>{tier.price}</span>
                 {tier.period && (
-                  <span className="text-base ml-1" style={{ color: tier.highlighted ? 'rgba(245,245,243,0.5)' : 'rgba(13,16,23,0.4)' }}>
+                  <span className="text-base ml-1" style={{ color: 'rgba(245,245,243,0.4)' }}>
                     {tier.period}
                   </span>
                 )}
@@ -131,7 +147,7 @@ export default function Pricing() {
                 {tier.features.map(feature => (
                   <li key={feature} className="flex items-start gap-3 text-sm leading-relaxed">
                     <span className="mt-1.5 h-1.5 w-1.5 rounded-full shrink-0" style={{ background: '#3AAFA9' }} />
-                    <span style={{ color: tier.highlighted ? 'rgba(245,245,243,0.75)' : 'rgba(13,16,23,0.65)' }}>
+                    <span style={{ color: 'rgba(245,245,243,0.65)' }}>
                       {feature}
                     </span>
                   </li>
@@ -142,8 +158,9 @@ export default function Pricing() {
                 href="#contact"
                 className="w-full inline-flex items-center justify-center gap-2 px-6 py-4 rounded-full font-semibold btn-primary"
                 style={{
-                  background: tier.highlighted ? '#3AAFA9' : '#F5F5F3',
-                  color: tier.highlighted ? '#0D1017' : '#0D1017'
+                  background: tier.highlighted ? '#3AAFA9' : 'transparent',
+                  color: tier.highlighted ? '#0D1017' : '#F5F5F3',
+                  border: tier.highlighted ? 'none' : '1px solid rgba(245,245,243,0.12)'
                 }}
               >
                 {tier.cta} <ArrowRight className="w-4 h-4" />

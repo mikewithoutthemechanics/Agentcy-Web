@@ -8,18 +8,34 @@
   --color-silver-dark: #2A8B8B;
   --color-graphite: #2D2D2D;
   --color-warm-white: #F5F5F0;
+  --color-space: #0D1017;
+  --color-space-light: #141922;
+  --color-space-lighter: #1C2333;
 }
 
-body {
+* {
   font-family: "Space Grotesk", sans-serif;
-  background-color: #000;
-  color: #fff;
-  overflow-x: hidden;
 }
 
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 80px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  background-color: #0D1017;
+  color: #F5F5F3;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+::selection {
+  background: rgba(58,175,169,0.3);
+  color: #fff;
 }
 
 /* Hide scrollbar for carousel */
@@ -45,17 +61,18 @@ html {
   inset: 0;
   z-index: 9998;
   pointer-events: none;
-  opacity: 0.035;
+  opacity: 0.03;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   background-repeat: repeat;
   background-size: 256px;
 }
 
-
 /* Service card hover glow */
 .service-card {
   position: relative;
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+  background: #141922;
+  border: 1px solid rgba(245,245,243,0.06);
 }
 .service-card::before {
   content: '';
@@ -64,7 +81,7 @@ html {
   border-radius: 1.5rem;
   opacity: 0;
   transition: opacity 0.4s ease;
-  background: radial-gradient(circle at 50% 50%, rgba(58,175,169,0.06) 0%, transparent 60%);
+  background: radial-gradient(circle at 50% 50%, rgba(58,175,169,0.08) 0%, transparent 60%);
   pointer-events: none;
   z-index: 0;
 }
@@ -73,7 +90,7 @@ html {
 }
 .service-card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 20px 50px rgba(0,0,0,0.06);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.3);
 }
 .service-card > * {
   position: relative;
@@ -82,7 +99,7 @@ html {
 
 /* Pricing card glow */
 .pricing-highlight {
-  box-shadow: 0 0 0 1px rgba(58,175,169,0.3), 0 20px 60px rgba(58,175,169,0.12);
+  box-shadow: 0 0 0 1px rgba(58,175,169,0.3), 0 20px 60px rgba(58,175,169,0.15);
 }
 .pricing-highlight::after {
   content: '';
@@ -138,5 +155,122 @@ html {
 }
 .testimonial-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 12px 40px rgba(0,0,0,0.06);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.2);
+}
+
+/* Case study card */
+.case-card {
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+.case-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 24px 60px rgba(0,0,0,0.3);
+}
+
+/* Team card */
+.team-card {
+  transition: transform 0.3s ease;
+}
+.team-card:hover {
+  transform: translateY(-4px);
+}
+
+/* Marquee animation */
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.animate-marquee {
+  animation: marquee 30s linear infinite;
+}
+
+/* Timeline line */
+.timeline-line {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: linear-gradient(to bottom, transparent, rgba(58,175,169,0.3), transparent);
+  transform: translateX(-50%);
+}
+
+/* Process number circle */
+.process-number {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.25rem;
+  border: 1px solid rgba(58,175,169,0.4);
+  color: #3AAFA9;
+  background: rgba(58,175,169,0.05);
+  flex-shrink: 0;
+}
+
+/* Container utilities */
+.container-medium {
+  max-width: 80rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+.container-base {
+  max-width: 75rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+/* Accordion */
+.faq-accordion {
+  border-bottom: 1px solid rgba(245,245,243,0.08);
+}
+
+/* Modal */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: rgba(0,0,0,0.7);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0D1017;
+}
+::-webkit-scrollbar-thumb {
+  background: #1C2333;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #2A8B8B;
+}
+
+/* Input styling for dark theme */
+input, textarea, select {
+  background: #141922;
+  border: 1px solid rgba(245,245,243,0.08);
+  color: #F5F5F3;
+}
+input::placeholder, textarea::placeholder {
+  color: rgba(245,245,243,0.3);
+}
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  border-color: rgba(58,175,169,0.4);
+  box-shadow: 0 0 0 3px rgba(58,175,169,0.1);
 }

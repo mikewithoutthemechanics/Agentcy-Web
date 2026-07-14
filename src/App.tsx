@@ -4,6 +4,8 @@ import Services from './components/Services';
 import HowItWorks from './components/HowItWorks';
 import WhyAgentcy from './components/WhyAgentcy';
 import Results from './components/Results';
+import CaseStudies from './components/CaseStudies';
+import Team from './components/Team';
 import Pricing from './components/Pricing';
 import Testimonials from './components/Testimonials';
 import FAQ from './components/FAQ';
@@ -54,11 +56,8 @@ function usePath() {
 function Layout({ children }: { children: React.ReactNode }) {
   return (
     <>
-      <div style={{ background: '#F5F5F3', color: '#0D1017' }}>
-        {children}
-        <JsonLd key="organization-schema" data={organizationSchema} />
-      </div>
-      <Footer />
+      {children}
+      <JsonLd key="organization-schema" data={organizationSchema} />
     </>
   );
 }
@@ -74,12 +73,14 @@ export default function App() {
   // Main landing
   return (
     <>
-      <main style={{ background: '#F5F5F3', color: '#0D1017', minHeight: '100vh' }}>
+      <main style={{ background: '#0D1017', color: '#F5F5F3', minHeight: '100vh' }}>
         <Hero />
         <Services />
         <HowItWorks />
         <WhyAgentcy />
         <Results />
+        <CaseStudies />
+        <Team />
         <Pricing />
         <Testimonials />
         <FAQ />

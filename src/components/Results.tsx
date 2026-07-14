@@ -28,22 +28,20 @@ const results = [
 
 export default function Results() {
   return (
-    <section id="results" className="bg-white text-black py-24 md:py-32 px-6 md:px-10">
-      <div className="max-w-7xl mx-auto">
+    <section id="results" className="py-24 md:py-32 px-6 md:px-10 relative z-30" style={{ background: '#0D1017' }}>
+      <div className="container-medium">
         <div className="text-center max-w-3xl mx-auto mb-16 md:mb-24">
-          <motion.span
-            initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}
-            className="block text-xs font-semibold uppercase tracking-[0.2em] mb-4"
-            style={{ color: 'rgba(13,16,23,0.35)' }}
-          >
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-semibold uppercase tracking-[0.2em] mb-4" style={{ background: 'rgba(58,175,169,0.08)', color: '#3AAFA9', border: '1px solid rgba(58,175,169,0.15)' }}>
+            <span className="w-1.5 h-1.5 rounded-full" style={{ background: '#3AAFA9' }} />
             Real results
-          </motion.span>
+          </div>
           <motion.h2
             initial={{ opacity: 0, y: 40, clipPath: 'inset(100% 0 0 0)' }}
             whileInView={{ opacity: 1, y: 0, clipPath: 'inset(0% 0 0 0)' }}
             viewport={{ once: true }}
             transition={{ duration: 0.9, ease }}
             className="text-[clamp(2.5rem,5vw,4.5rem)] font-bold tracking-tighter leading-[0.95] mb-6"
+            style={{ color: '#F5F5F3' }}
           >
             Numbers that prove it works.
           </motion.h2>
@@ -51,9 +49,9 @@ export default function Results() {
             initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}
             transition={{ delay: 0.2 }}
             className="text-lg md:text-xl leading-relaxed"
-            style={{ color: 'rgba(13,16,23,0.55)' }}
+            style={{ color: 'rgba(245,245,243,0.5)' }}
           >
-            Every engagement is measured. Here\'s what South African businesses are seeing.
+            Every engagement is measured. Here's what South African businesses are seeing.
           </motion.p>
         </div>
 
@@ -66,13 +64,13 @@ export default function Results() {
               viewport={{ once: true }}
               transition={{ delay: i * 0.1, duration: 0.6, ease }}
               className="p-8 md:p-10 rounded-3xl text-center"
-              style={{ background: '#F5F5F3' }}
+              style={{ background: '#141922', border: '1px solid rgba(245,245,243,0.06)' }}
             >
               <div className="text-5xl md:text-6xl font-bold tracking-tighter mb-3" style={{ color: '#3AAFA9' }}>
                 {result.metric}
               </div>
-              <div className="text-base font-semibold mb-3">{result.label}</div>
-              <p className="text-sm leading-relaxed" style={{ color: 'rgba(13,16,23,0.45)' }}>
+              <div className="text-base font-semibold mb-3" style={{ color: '#F5F5F3' }}>{result.label}</div>
+              <p className="text-sm leading-relaxed" style={{ color: 'rgba(245,245,243,0.4)' }}>
                 {result.context}
               </p>
             </motion.div>
