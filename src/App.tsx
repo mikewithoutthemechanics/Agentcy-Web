@@ -11,6 +11,21 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 import Terms from './components/Terms';
 import Privacy from './components/Privacy';
+import JsonLd from './components/JsonLd';
+
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Agentcy",
+  "url": "https://www.agentcy.co.za",
+  "logo": "https://agentcy.co.za/og.png",
+  "description": "Agentcy sends AI engineers into South African businesses to eliminate operational drag. We audit, architect, and automate workflows, AI integrations, and custom tools. Based in Ballito and Knysna.",
+  "sameAs": [
+    "https://www.facebook.com/yourpage",
+    "https://twitter.com/yourhandle",
+    "https://www.linkedin.com/company/yourcompany"
+  ]
+};
 
 function usePath() {
   const [path, setPath] = useState(window.location.pathname);
@@ -36,7 +51,15 @@ function usePath() {
 }
 
 function Layout({ children }: { children: React.ReactNode }) {
-  return <><div style={{ background: '#F5F5F3', color: '#0D1017' }}>{children}</div><Footer /></>;
+  return (
+    <>
+      <div style={{ background: '#F5F5F3', color: '#0D1017' }}>
+        {children}
+        <JsonLd key="organization-schema" data={organizationSchema} />
+      </div>
+      <Footer />
+    </>
+  );
 }
 
 export default function App() {
