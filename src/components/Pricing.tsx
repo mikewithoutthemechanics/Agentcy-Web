@@ -85,7 +85,7 @@ export default function Pricing() {
             className="text-lg md:text-xl leading-relaxed"
             style={{ color: 'rgba(13,16,23,0.55)' }}
           >
-            Every engagement starts with a conversation. Pick a tier or reach out — we\'ll recommend what fits.
+            Every engagement starts with a conversation. Pick a tier or reach out — we'll recommend what fits.
           </motion.p>
         </div>
 
@@ -104,6 +104,13 @@ export default function Pricing() {
                 border: tier.highlighted ? '2px solid #3AAFA9' : '1px solid rgba(13,16,23,0.08)'
               }}
             >
+              {tier.highlighted && (
+                <div className="absolute -top-3 left-4 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest"
+                  style={{ background: '#3AAFA9', color: '#0D1017', boxShadow: '0 4px 12px rgba(58,175,169,0.3)' }}>
+                  Most Popular
+                </div>
+              )}
+
               <div className="mb-6">
                 <h3 className="text-xl font-bold tracking-tight mb-1">{tier.name}</h3>
                 <p className="text-sm" style={{ color: tier.highlighted ? 'rgba(245,245,243,0.55)' : 'rgba(13,16,23,0.45)' }}>

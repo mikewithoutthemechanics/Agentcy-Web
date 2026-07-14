@@ -8,6 +8,7 @@ import Pricing from './components/Pricing';
 import Testimonials from './components/Testimonials';
 import FAQ from './components/FAQ';
 import Contact from './components/Contact';
+import Audit from './components/Audit';
 import Footer from './components/Footer';
 import Terms from './components/Terms';
 import Privacy from './components/Privacy';
@@ -66,6 +67,7 @@ export default function App() {
   const path = usePath();
 
   // Sub-pages
+  if (path === '/audit') return <Layout><Audit /></Layout>;
   if (path === '/terms') return <Layout><Terms /></Layout>;
   if (path === '/privacy') return <Layout><Privacy /></Layout>;
 

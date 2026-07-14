@@ -86,8 +86,8 @@ export default function Hero() {
             { href: '#how-it-works', label: 'How It Works' },
             { href: '#results', label: 'Results' },
             { href: '#pricing', label: 'Pricing' },
-            { href: '#faq', label: 'FAQ' },
-            { href: '#contact', label: 'Contact', accent: true }
+            { href: 'tel:+27600000000', label: '+27 60 000 0000', accent: true },
+            { href: '#contact', label: 'Contact' }
           ].map(link => (
             <a
               key={link.href}
