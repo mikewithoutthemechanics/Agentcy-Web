@@ -65,7 +65,7 @@ export default function Terms() {
 
           <div>
             <h2 className="text-xl font-bold mb-3" style={{ color: '#F5F5F3' }}>7. Contact</h2>
-            <p style={{ color: 'rgba(245,245,243,0.5)' }}>Questions about these terms? Email us at <a href="mailto:michael@agentcy.co.za" className="underline" style={{ color: '#3AAFA9' }}>michael@agentcy.co.za</a>.</p>
+            <p style={{ color: 'rgba(245,245,243,0.5)' }}>Questions about these terms? Email us at <a href="mailto:ai@agentcy.co.za" className="underline" style={{ color: '#3AAFA9' }}>ai@agentcy.co.za</a>.</p>
           </div>
         </motion.div>
       </div>

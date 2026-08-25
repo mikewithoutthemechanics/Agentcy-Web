@@ -1,4 +1,4 @@
-import { useState, React } from 'react';
+import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { ArrowRight, Send, CheckCircle, Calendar, MessageCircle, X } from 'lucide-react';
 import EyeBrow from './EyeBrow';
@@ -45,7 +45,7 @@ export default function Contact() {
           transition={{ duration: 0.9, ease }}
           className="max-w-3xl mb-16 md:mb-24"
         >
-          <EyeBey label="Contact" number="011" />
+          <EyeBrow label="Contact" number="011" />
           <h2
             className="text-[clamp(2.5rem,5vw,4.5rem)] font-bold tracking-tighter leading-[0.95] mb-6"
             style={{ color: '#F5F5F3' }}
@@ -88,13 +88,13 @@ export default function Contact() {
             <div className="space-y-6">
               <div className="p-6 rounded-2xl" style={{ background: '#141922', border: '1px solid rgba(245,245,243,0.06)' }}>
                 <p className="text-sm font-semibold uppercase tracking-widest mb-2" style={{ color: 'rgba(245,245,243,0.35)' }}>Email</p>
-                <a href="mailto:michael@agentcy.co.za" className="text-lg font-medium hover:text-[#3AAFA9] transition-colors" style={{ color: '#F5F5F3' }}>
-                  michael@agentcy.co.za
+                <a href="mailto:ai@agentcy.co.za" className="text-lg font-medium hover:text-[#3AAFA9] transition-colors" style={{ color: '#F5F5F3' }}>
+                  ai@agentcy.co.za
                 </a>
               </div>
               <div className="p-6 rounded-2xl" style={{ background: '#141922', border: '1px solid rgba(245,245,243,0.06)' }}>
                 <p className="text-sm font-semibold uppercase tracking-widest mb-2" style={{ color: 'rgba(245,245,243,0.35)' }}>WhatsApp</p>
-                <a href="https://wa.me/27600000000" target="_blank" rel="noopener noreferrer" className="text-lg font-medium hover:text-[#3AAFA9] transition-colors" style={{ color: '#F5F5F3' }}>
+                <a href="https://wa.me/27837915428" target="_blank" rel="noopener noreferrer" className="text-lg font-medium hover:text-[#3AAFA9] transition-colors" style={{ color: '#F5F5F3' }}>
                   Chat with us on WhatsApp
                 </a>
               </div>
@@ -256,7 +256,7 @@ export default function Contact() {
               Book a free audit <ArrowRight className="w-5 h-5" />
             </a>
             <a
-              href="https://wa.me/27600000000?text=Hi%20Agentcy%2C%20I%27d%20like%20to%20chat%20about%20AI%20automation%20for%20my%20business."
+              href="https://wa.me/27837915428?text=Hi%20Agentcy%2C%20I%27d%20like%20to%20chat%20about%20AI%20automation%20for%20my%20business."
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2.5 px-8 py-4 rounded-full font-bold text-base btn-primary"
@@ -274,3 +274,6 @@ export default function Contact() {
     </section>
   );
 }
+
+
+

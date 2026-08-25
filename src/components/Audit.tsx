@@ -117,7 +117,7 @@ export default function Audit() {
               </div>
 
               <p className="text-xs mt-4 text-center" style={{ color: 'rgba(245,245,243,0.35)' }}>
-                Prefer WhatsApp? <a href="https://wa.me/27600000000?text=Hi%20Agentcy%2C%20I%27d%20like%20to%20claim%20a%20free%20audit" className="underline" style={{ color: '#3AAFA9' }}>Message us directly</a>
+                Prefer WhatsApp? <a href="https://wa.me/27837915428?text=Hi%20Agentcy%2C%20I%27d%20like%20to%20claim%20a%20free%20audit" className="underline" style={{ color: '#3AAFA9' }}>Message us directly</a>
               </p>
             </motion.div>
           </div>

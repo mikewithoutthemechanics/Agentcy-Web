@@ -86,7 +86,7 @@ export default function Hero() {
             { href: '#how-it-works', label: 'How It Works' },
             { href: '#results', label: 'Results' },
             { href: '#pricing', label: 'Pricing' },
-            { href: 'tel:+27600000000', label: '+27 60 000 0000', accent: true },
+            { href: 'tel:+27837915428', label: '+27 60 000 0000', accent: true },
             { href: '#contact', label: 'Contact' }
           ].map(link => (
             <a
@@ -185,7 +185,7 @@ export default function Hero() {
             Book a free 20-min audit <ArrowRight className="w-5 h-5" />
           </a>
           <a
-            href="https://wa.me/27600000000?text=Hi%20Agentcy%2C%20I%27d%20like%20to%20chat%20about%20AI%20automation%20for%20my%20business."
+            href="https://wa.me/27837915428?text=Hi%20Agentcy%2C%20I%27d%20like%20to%20chat%20about%20AI%20automation%20for%20my%20business."
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2.5 px-8 py-4 rounded-full font-bold text-base btn-primary"

@@ -25,8 +25,8 @@ if (typeof document !== 'undefined') {
     name: 'Agentcy',
     description: 'AI engineers on-site anywhere in South Africa — workflow automation, AI integration, custom tools, and agentic solutions.',
     url: 'https://agentcy.co.za',
-    telephone: '+27600000000',
-    email: 'michael@agentcy.co.za',
+    telephone: '+27837915428',
+    email: 'ai@agentcy.co.za',
     address: [
       {
         '@type': 'PostalAddress',
@@ -42,7 +42,8 @@ if (typeof document !== 'undefined') {
       }
     ],
     areaServed: 'South Africa',
-    priceRange: 'R'
+    priceRange: 'R',
+    logo: 'https://agentcy.co.za/og.svg'
   };
 
   // FAQPage schema
@@ -80,3 +81,4 @@ createRoot(document.getElementById('root')!).render(
     <App />
   </StrictMode>,
 )
+

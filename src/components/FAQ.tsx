@@ -43,7 +43,7 @@ export default function FAQ() {
         <div className="flex flex-col md:flex-row gap-16">
           {/* Left col */}
           <div className="md:w-1/3">
-            <EyeBey label="FAQs" number="010" />
+            <EyeBrow label="FAQs" number="010" />
             <p className="text-xl leading-relaxed mb-8" style={{ color: 'rgba(245,245,243,0.5)' }}>
               Questions we get from South African business owners — and straight answers.
             </p>
@@ -89,3 +89,4 @@ export default function FAQ() {
     </section>
   );
 }
+

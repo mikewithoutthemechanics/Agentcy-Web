@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.agentcy.co.za/sitemap.xml
+Sitemap: https://agentcy.co.za/sitemap.xml

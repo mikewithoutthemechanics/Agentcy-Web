@@ -33,7 +33,7 @@ export default function Footer() {
               Book a free audit <ArrowRight className="w-5 h-5" />
             </a>
             <a
-              href="https://wa.me/27600000000?text=Hi%20Agentcy%2C%20I%27d%20like%20to%20chat%20about%20AI%20automation%20for%20my%20business."
+              href="https://wa.me/27837915428?text=Hi%20Agentcy%2C%20I%27d%20like%20to%20chat%20about%20AI%20automation%20for%20my%20business."
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full font-bold transition-all hover:scale-105 text-base w-full sm:w-auto"
